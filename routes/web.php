@@ -12,10 +12,11 @@ use App\Http\Controllers\InfoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FrontThemeController;
 
 
     Route::get('/',[HomeController::class,'index'])->name('home');
-    Route::get('/detail',[HomeController::class,'detail'])->name('detail');
+    Route::get('/themes',[FrontThemeController::class,'themes'])->name('themes');
 
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function ()
     {
