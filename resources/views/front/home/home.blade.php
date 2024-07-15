@@ -210,14 +210,14 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="product-card ">
                                 <div class="product-card__thumb d-flex">
-                                    <a href="{{route('detail')}}" class="link w-100">
+                                    <a href="" class="link w-100">
                                         <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">
                                     </a>
                                     <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
                                 </div>
                                 <div class="product-card__content">
                                     <h6 class="product-card__title">
-                                        <a href="{{route('detail')}}" class="link">SaaS dashboard digital products Title here</a>
+                                        <a href="" class="link">SaaS dashboard digital products Title here</a>
                                     </h6>
                                     <div class="product-card__info flx-between gap-2">
             <span class="product-card__author">
