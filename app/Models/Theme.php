@@ -24,7 +24,8 @@ class Theme extends Model
     {
         self::$theme= new Theme();
         self::$theme->name=$request->name;
-        self::$theme->slug=Str::slug($request->name);
+        $s = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
+        self::$theme->slug=$s.'-'.Str::slug($request->name);
         self::$theme->category_id=$request->category_id;
         self::$theme->sub_category_id=$request->sub_category_id;
         self::$theme->link=$request->link;
@@ -57,7 +58,8 @@ class Theme extends Model
             self::$imageUrl=self::$theme->image;
         }
         self::$theme->name=$request->name;
-        self::$theme->slug=Str::slug($request->name);
+        $s = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
+        self::$theme->slug=$s.'-'.Str::slug($request->name);
         self::$theme->category_id=$request->category_id;
         self::$theme->sub_category_id=$request->sub_category_id;
         self::$theme->link=$request->link;
@@ -74,10 +76,10 @@ class Theme extends Model
     }
     public function category()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsTo(Category::class, 'category_id');
     }
     public function sub_category()
     {
-        return $this->belongsTo('App\Models\SubCategory');
+        return $this->belongsTo(SubCategory::class, 'sub_category_id');
     }
 }

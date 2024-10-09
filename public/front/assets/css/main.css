@@ -2980,6 +2980,10 @@ input[type=number] {
     background-color: hsl(var(--white));
     z-index: 99999;
 }
+hr.new5 {
+    border: 10px solid rgb(36, 12, 203);
+    border-radius: 5px;
+}
 
 .loader-mask .loader {
     position: absolute;
@@ -4635,7 +4639,7 @@ input[type=number] {
     width: 40px;
     height: 40px;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 70%;
 }
 
 .user-profile__button {

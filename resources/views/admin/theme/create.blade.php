@@ -34,22 +34,29 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail2">Category</label>
-                                        <select class="form-control" name="category_id">
-                                            <option selected disabled>--Select Category--</option>
+                                        <select class="form-control" name="category_id" onchange="getProductSubCategory(this.value)">
+                                            <option value="">--Select Category Name--</option>
                                             @foreach($categories as $category)
-                                            <option value="{{$category->id}}" >{{$category->name}}</option>
+                                                <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
+
                                         </select>
                                     </div>
+
                                     <div class="form-group">
                                         <label for="exampleInputEmail2">SubCategory</label>
-                                        <select class="form-control" name="sub_category_id">
-                                            <option selected disabled>--Select SubCategory--</option>
+                                        <select class="form-control" name="sub_category_id" id="subCategoryId">
+                                            <option value="">--Select Sub Category Name--</option>
                                             @foreach($subcategories as $subcategory)
-                                                <option value="{{$subcategory->id}}" >{{$subcategory->name}}</option>
+                                                <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
                                             @endforeach
+
                                         </select>
                                     </div>
+
+
+
+
                                     <div class="form-group">
                                         <label for="exampleInputEmail2">Link</label>
                                         <input type="text" name="link"  class="form-control" id="exampleInputEmail2" placeholder="Name">
@@ -136,5 +143,8 @@
             height: 100
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 @endsection
 
