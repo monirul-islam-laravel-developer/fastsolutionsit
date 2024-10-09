@@ -9,7 +9,7 @@
             <div class="col-xl-3 col-sm-6">
                 <div class="footer-item">
                     <div class="footer-item__logo">
-                        <a href="{{route('home')}}"> <img src="{{$logo->mobile_logo}}" alt=""></a>
+                        <a href="{{route('home')}}"> <img src="{{asset($logo->mobile_logo)}}" alt=""></a>
                     </div>
                     <p class="footer-item__desc">Lorem consultancy elitsed do eiusmod tempor inci didunt ut labore dolore magna aliqua sed do eiusmod.</p>
                     <div class="footer-item__social">
@@ -76,7 +76,7 @@
 <div class="bottom-footer">
     <div class="container container-two">
         <div class="bottom-footer__inner flx-between gap-3">
-            <p class="bottom-footer__text font-14"> Copyright &copy; 2024 DPmarket, All rights reserved.</p>
+            <p class="bottom-footer__text font-14"> Copyright &copy; 2024 FastSolutionsIt, All rights reserved.</p>
             <div class="footer-links">
                 <a href="#" class="footer-link font-14">Terms of service</a>
                 <a href="#" class="footer-link font-14">Privacy Policy</a>

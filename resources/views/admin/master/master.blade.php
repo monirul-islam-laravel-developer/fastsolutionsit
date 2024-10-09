@@ -615,8 +615,35 @@
 <script src="{{asset('/')}}admin/assets/js/table-data.js"></script>
 
 <!-- Initialize SweetAlert -->
-@include('sweetalert::alert')
 
+<script>
+    function getProductSubCategory(id)
+    {
+        $.ajax(
+            {
+                method:"GET",
+                url:"{{url('get-sub-category-by-id')}}",
+                data:{id:id},
+                dataType:"JSON",
+                success:function (response) {
+
+                    // console.log(response);
+                    var subCategoryId =$('#subCategoryId');
+                    subCategoryId.empty();
+
+                    var option ='<option value="">--Select SubCategory--</option>';
+                    option +='';
+                    $.each(response,function (key,value) {
+                        option +='<option value=" '+value.id+' ">'+value.name+' </option>';
+
+
+                    });
+                    subCategoryId.append(option);
+
+                }
+            });
+    }
+</script>
 
 </body>
 

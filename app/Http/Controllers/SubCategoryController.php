@@ -11,7 +11,6 @@ class SubCategoryController extends Controller
 {
     private $subcategories;
     private $subcategory;
-    private $categories;
     /**
      * Display a listing of the resource.
      */
@@ -27,7 +26,7 @@ class SubCategoryController extends Controller
     public function create()
     {
         $this->categories=Category::all();
-        return view('admin.subcategory.create',['categories'=>$this->categories]);
+        return view('admin.subcategory.create');
     }
 
     /**
@@ -69,10 +68,8 @@ class SubCategoryController extends Controller
     public function edit(string $id)
     {
         $this->subcategory=SubCategory::find($id);
-        $this->categories=Category::all();
         return view('admin.subcategory.edit',
             [
-                'categories'=>$this->categories,
                 'subcategory'=>$this->subcategory
             ]);
     }
