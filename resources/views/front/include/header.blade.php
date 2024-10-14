@@ -4,10 +4,10 @@
             <!-- Logo Start -->
             <div class="logo">
                 <a href="{{route('home')}}" class="link white-version">
-                    <img src="{{asset($logo->mobile_logo)}}" alt="Logo">
+                    <img src="{{$logo->mobile_logo}}" alt="Logo">
                 </a>
                 <a href="{{route('home')}}" class="link dark-version">
-                    <img src="{{asset($logo->mobile_logo)}}" alt="Logo">
+                    <img src="{{$logo->mobile_logo}}" alt="Logo">
                 </a>
             </div>
             <!-- Logo End  -->
@@ -16,20 +16,28 @@
             <div class="header-menu d-lg-block d-none">
 
                 <ul class="nav-menu flx-align ">
-                    @foreach($categories as $category)
-                        <li class="nav-menu__item has-submenu">
-                            <a href="javascript:void(0)" class="nav-menu__link">{{$category->name}}</a>
-                            <ul class="nav-submenu">
-                                @foreach($category->subcategories as $subcategory)
-                                    @if(!empty($subcategory))
-                                        <li class="nav-submenu__item">
-                                            <a href="{{ route('single-category',['slug' => $subcategory->slug]) }}" class="nav-submenu__link">{{$subcategory->name}}</a>
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                        </li>
-                    @endforeach
+                    <li class="nav-menu__item has-submenu">
+                        <a href="javascript:void(0)" class="nav-menu__link">Home</a>
+                        <ul class="nav-submenu">
+                            <li class="nav-submenu__item">
+                                <a href="{{route('home')}}" class="nav-submenu__link"> Home One</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="index-two.html" class="nav-submenu__link"> Home Two</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu__item has-submenu">
+                        <a href="javascript:void(0)" class="nav-menu__link">Products</a>
+                        <ul class="nav-submenu">
+                            <li class="nav-submenu__item">
+                                <a href="all-product.html" class="nav-submenu__link"> All Products</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="product-details.html" class="nav-submenu__link"> Product Details</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-menu__item has-submenu">
                         <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
                         <ul class="nav-submenu">
@@ -37,7 +45,7 @@
                                 <a href="profile.html" class="nav-submenu__link"> Profile</a>
                             </li>
                             <li class="nav-submenu__item">
-                                <a href="{{route('add-to-cart')}}" class="nav-submenu__link"> Shopping Cart</a>
+                                <a href="cart.html" class="nav-submenu__link"> Shopping Cart</a>
                             </li>
                             <li class="nav-submenu__item">
                                 <a href="cart-personal.html" class="nav-submenu__link"> Mailing Address</a>
@@ -76,89 +84,46 @@
 
             <!-- Header Right start -->
             <div class="header-right flx-align">
+                <a href="cart.html" class="header-right__button cart-btn position-relative">
+                    <img src="{{asset('/')}}front/assets/images/icons/cart.svg" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/icons/cart-white.svg" alt="" class="dark-version">
+                    <span class="qty-badge font-12">0</span>
+                </a>
 
-                <!-- Cart Button (commented out) -->
-            {{-- <a href="{{ route('add-to-cart') }}" class="header-right__button cart-btn position-relative">
-                <img src="{{ asset('/') }}front/assets/images/icons/cart.svg" alt="" class="white-version">
-                <img src="{{ asset('/') }}front/assets/images/icons/cart-white.svg" alt="" class="dark-version">
-                <span class="qty-badge font-12">0</span>
-            </a> --}}
-
-            <!-- Light/Dark Mode Switch -->
+                <!-- Light Dark Mode -->
                 <div class="theme-switch-wrapper position-relative">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" class="d-none" id="checkbox">
                         <span class="slider text-black header-right__button white-version">
-                <img src="{{ asset('/') }}front/assets/images/icons/sun.svg" alt="">
-            </span>
+            <img src="{{asset('/')}}front/assets/images/icons/sun.svg" alt="">
+        </span>
                         <span class="slider text-black header-right__button dark-version">
-                <img src="{{ asset('/') }}front/assets/images/icons/moon.svg" alt="">
-            </span>
+            <img src="{{asset('/')}}front/assets/images/icons/moon.svg" alt="">
+        </span>
                     </label>
                 </div>
 
 
-                @if(Session::get('custommer_id'))
-                <div>
-                    {{ Session::get('custommer_name') }}
+                <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
+
+                    <a href="register.html" class="btn btn-main pill">
+        <span class="icon-left icon">
+            <img src="{{asset('/')}}front/assets/images/icons/user.svg" alt="">
+        </span>Create Account
+                    </a>
+                    <div class="language-select flx-align select-has-icon">
+                        <img src="{{asset('/')}}front/assets/images/icons/globe.svg" alt="" class="globe-icon white-version">
+                        <img src="{{asset('/')}}front/assets/images/icons/globe-white.svg" alt="" class="globe-icon dark-version">
+                        <select class="select py-0 ps-2 border-0 fw-500">
+                            <option value="1">Eng</option>
+                            <option value="2">Bn</option>
+                            <option value="3">Eur</option>
+                            <option value="4">Urd</option>
+                        </select>
+                    </div>
                 </div>
-                    <div class="user-profile">
-
-                        <button class="user-profile__button flex-align">
-                <span class="user-profile__thumb">
-                    <img src="{{ asset('/') }}front/assets/images/thumbs/user-profile.png" class="cover-img" alt="">
-                </span>
-                        </button>
-                        <ul class="user-profile-dropdown">
-                            <li class="sidebar-list__item">
-                                <a href="{{route('customer-profile')}}" class="sidebar-list__link">
-                        <span class="sidebar-list__icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon2.svg" alt="" class="icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon-active2.svg" alt="" class="icon icon-active">
-                        </span>
-                                    <span class="text">Profile</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-list__item">
-                                <a href="setting.html" class="sidebar-list__link">
-                        <span class="sidebar-list__icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon10.svg" alt="" class="icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon-active10.svg" alt="" class="icon icon-active">
-                        </span>
-                                    <span class="text">Settings</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-list__item">
-                                <a href="{{route('customer-logout')}}" class="sidebar-list__link">
-                        <span class="sidebar-list__icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon13.svg" alt="" class="icon">
-                            <img src="{{ asset('/') }}front/assets/images/icons/sidebar-icon-active13.svg" alt="" class="icon icon-active">
-                        </span>
-                                    <span class="text">Logout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                @else
-                    <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
-                        <a href="{{ route('customer-register') }}" class="btn btn-main pill">
-                <span class="icon-left icon">
-                    <img src="{{ asset('/') }}front/assets/images/icons/user.svg" alt="">
-                </span>Create Account
-                        </a>
-                        <a href="{{ route('customer-login') }}" class="btn btn-main pill">
-                <span class="icon-left icon">
-                    <img src="{{ asset('/') }}front/assets/images/icons/user.svg" alt="">
-                </span>Login
-                        </a>
-                    </div>
-                @endif
-
-                <button type="button" class="toggle-mobileMenu d-lg-none">
-                    <i class="las la-bars"></i>
-                </button>
+                <button type="button" class="toggle-mobileMenu d-lg-none"> <i class="las la-bars"></i> </button>
             </div>
-
             <!-- Header Right End  -->
         </nav>
     </div>

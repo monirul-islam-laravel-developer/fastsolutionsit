@@ -26,8 +26,7 @@ class SubCategory extends Model
         self::$subcategory= new SubCategory();
         self::$subcategory->category_id=$request->category_id;
         self::$subcategory->name=$request->name;
-        $s = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
-        self::$subcategory->slug=$s.'-'.Str::slug($request->name);
+        self::$subcategory->slug=Str::slug($request->name);
         if ($request->file('image'))
         {
             self::$subcategory->image=self::getImageUrl($request);
@@ -55,8 +54,7 @@ class SubCategory extends Model
         }
         self::$subcategory->category_id=$request->category_id;
         self::$subcategory->name=$request->name;
-        $s = substr(str_shuffle(str_repeat("0123456789abcdefghijklmnopqrstuvwxyz", 5)), 0, 5);
-        self::$subcategory->slug=$s.'-'.Str::slug($request->name);
+        self::$subcategory->slug=Str::slug($request->name);
         self::$subcategory->image=self::$imageUrl;
         self::$subcategory->save();
     }
