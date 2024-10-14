@@ -599,6 +599,7 @@
 <script src="{{asset('/')}}admin/assets/switcher/js/switcher.js"></script>
 <!-- Include SweetAlert2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- DATA TABLE JS-->
 <script src="{{asset('/')}}admin/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('/')}}admin/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>

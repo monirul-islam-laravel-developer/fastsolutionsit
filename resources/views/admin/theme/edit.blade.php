@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail2">Category</label>
-                                        <select class="form-control" name="category_id">
+                                        <select class="form-control" name="category_id" onchange="getProductSubCategory(this.value)">
                                             <option selected disabled>--Select Category--</option>
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}"{{$category->id==$theme->category_id ? 'selected' : ''}} >{{$category->name}}</option>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail2">SubCategory</label>
-                                        <select class="form-control" name="sub_category_id">
+                                        <select class="form-control" name="sub_category_id" id="subCategoryId">
                                             <option selected disabled>--Select SubCategory--</option>
                                             @foreach($subcategories as $subcategory)
                                                 <option value="{{$subcategory->id}}"{{$subcategory->id==$theme->sub_category_id ? 'selected' : ''}} >{{$subcategory->name}}</option>
