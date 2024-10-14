@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -15,7 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index',['categories'=>Category::orderBy('id','asc')->get()]);
+        return view('admin.category.index');
     }
 
     /**
@@ -98,4 +99,5 @@ class CategoryController extends Controller
         Alert::success('Category Delete Successfully','');
         return redirect('/category');
     }
+
 }
