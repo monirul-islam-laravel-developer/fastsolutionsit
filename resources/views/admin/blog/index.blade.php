@@ -49,9 +49,9 @@
                                                 <td>
                                                     @if($blog->status==1)
 
-                                                        <a href="{{route('blog.show',$blog->id)}}" class="btn btn-primary">Active</a>
+                                                        <a href="{{route('theme.show',$blog->id)}}" class="btn btn-primary">Active</a>
                                                     @else
-                                                        <a href="{{route('blog.show',$blog->id)}}" class="btn btn-warning">Inactive</a>
+                                                        <a href="{{route('theme.show',$blog->id)}}" class="btn btn-warning">Inactive</a>
                                                     @endif
 
                                                 </td>

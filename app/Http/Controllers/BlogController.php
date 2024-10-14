@@ -40,20 +40,9 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Blog $blog)
     {
-        $this->blog=Blog::find($id);
-        if ($this->blog->status==1)
-        {
-            $this->blog->status=0;
-        }
-        else
-        {
-            $this->blog->status=1;
-        }
-        $this->blog->save();
-        Alert::success('Blog Status Upgrated','.');
-        return redirect('blog');
+        //
     }
 
     /**
