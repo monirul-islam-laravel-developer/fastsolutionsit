@@ -10,11 +10,12 @@ use Session;
 class Customer extends Model
 {
     use HasFactory;
-    private static $image,$imageName,$imageExtention,$directory,$imageUrl,$customer;
+    private static $image,$imageName,$directory,$imageUrl,$customer;
+
     public static function getImageUrl($request)
     {
         self::$image =$request->file('image');
-        self::$imageName = time() . '.' . self::$image->getClientOriginalName();
+        self::$imageName =self::$image->getClientOriginalName();
         self::$directory = 'front/customer/image/';
         self::$image->move(self::$directory, self::$imageName);
         self::$imageUrl = self::$directory . self::$imageName;
@@ -44,7 +45,7 @@ class Customer extends Model
     }
     public static function customerUpdate($request)
     {
-        self::$customer = Customer::where('id',Session::get('custommer_id'))->first();
+        self::$customer = Customer::find(Session::get('custommer_id'));
         self::$customer->name = $request->name;
         self::$customer->slug = Str::slug($request->name);
         self::$customer->email = $request->email;
@@ -54,6 +55,21 @@ class Customer extends Model
         self::$customer->date_of_birth = $request->date_of_birth;
         self::$customer->gender = $request->gender;
         self::$customer->address = $request->address;
+        if ($request->file('image'))
+        {
+            if (file_exists(self::$customer->image))
+            {
+                unlink( self::$customer->image);
+            }
+            self::$imageUrl=self::getImageUrl($request);
+        }
+        else
+        {
+            self::$imageUrl= self::$customer->image;
+        }
+
+        self::$customer->image=self::$imageUrl;
+
         self::$customer->save();
     }
 

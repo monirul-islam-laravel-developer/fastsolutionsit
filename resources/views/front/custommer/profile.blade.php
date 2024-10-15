@@ -21,10 +21,10 @@
                     <div class="avatar-upload">
                         <div class="avatar-edit">
                             <input type='file' id="imageUploadTwo" accept=".png, .jpg, .jpeg">
-                            <label for="imageUploadTwo">
-                                <span class="icon"> <img src="{{asset('/')}}front/assets/images/icons/camera-two.svg" alt=""> </span>
-                                <span class="text">Change Cover</span>
-                            </label>
+{{--                            <label for="imageUploadTwo">--}}
+{{--                                <span class="icon"> <img src="{{asset('/')}}front/assets/images/icons/camera-two.svg" alt=""> </span>--}}
+{{--                                <span class="text">Change Cover</span>--}}
+{{--                            </label>--}}
                         </div>
                         <div class="avatar-preview">
                             <div id="imagePreviewTwo">
@@ -43,18 +43,19 @@
                                 <div class="profile-info">
                                     <div class="profile-info__inner mb-40 text-center">
 
-                                        <div class="avatar-upload mb-24">
-                                            <div class="avatar-edit">
-                                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg">
-                                                <label for="imageUpload">
-                                                    <img src="{{asset('/')}}front/assets/images/icons/camera.svg" alt="">
-                                                </label>
-                                            </div>
-                                            <div class="avatar-preview">
-                                                <div id="imagePreview">
-                                                </div>
-                                            </div>
-                                        </div>
+{{--                                        <div class="avatar-upload mb-24">--}}
+{{--                                            <div class="avatar-edit">--}}
+{{--                                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg">--}}
+{{--                                                <label for="imageUpload">--}}
+{{--                                                    <img src="{{asset('/')}}front/assets/images/icons/camera.svg" alt="">--}}
+{{--                                                </label>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="avatar-preview">--}}
+{{--                                                <div >--}}
+{{--                                                    id="imagePreview"--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                         <h4>  <p class="text-center text-success">{{Session::get('message')}}</p></h4>
                                         <h5 class="profile-info__name mb-1">{{$customer->name}}</h5>
                                     </div>
@@ -135,7 +136,7 @@
                                     <div class="profile-info-content">
                                         <div class="tab-content" id="pills-tabContent">
                                             <div class="tab-pane fade show active" id="pills-personalInfo" role="tabpanel" aria-labelledby="pills-personalInfo-tab" tabindex="0">
-                                                <form action="{{ route('customer-update', ['id' => $customer->id]) }}" autocomplete="off" method="POST">
+                                                <form action="{{ route('customer-update', ['id' => $customer->id]) }}" autocomplete="off" method="POST" enctype="multipart/form-data">
                                                     @method('POST')
                                                     @csrf
                                                     <div class="row gy-4">
@@ -183,6 +184,21 @@
                                                             <label for="date_of_birth" class="form-label mb-2 font-18 font-heading fw-600">Date of Birth</label>
                                                             <input type="date" class="common-input border" name="date_of_birth" id="date_of_birth" value="{{$customer->date_of_birth}}" placeholder="Date of Birth">
                                                         </div>
+                                                        <div class="col-sm-12 col-xs-12">
+                                                            <label for="image" class="form-label mb-2 font-18 font-heading fw-600">Image</label>
+
+                                                            <!-- File input -->
+                                                            <input type="file" class="form-control-file" id="imageUpload" name="image" accept="image/*" onchange="previewImage(event)">
+
+                                                            <br/>
+
+                                                            <!-- Image Preview -->
+                                                            <img id="imagePreview" src="{{ asset($customer->image) }}" width="100" height="50" alt="Image Preview">
+                                                        </div>
+
+                                                        <!-- JavaScript for Live Preview -->
+
+
 
 
                                                         <div class="col-sm-12 text-end">
@@ -327,5 +343,15 @@
             });
         });
 
+    </script>
+    <script type="text/javascript">
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('imagePreview');
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 @endsection

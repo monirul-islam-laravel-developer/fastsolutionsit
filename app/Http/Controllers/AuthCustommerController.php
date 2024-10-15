@@ -75,6 +75,7 @@ class AuthCustommerController extends Controller
     public function updateCustomer(Request $request)
     {
         Customer::customerUpdate($request);
+//        dd($request->all());
 
         Alert::success('Your Account Information Updated Successfully','');
         return redirect()->back();

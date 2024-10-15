@@ -106,8 +106,25 @@
 
                         <button class="user-profile__button flex-align">
                 <span class="user-profile__thumb">
-                    <img src="{{ asset('/') }}front/assets/images/thumbs/user-profile.png" class="cover-img" alt="">
-                </span>
+    @php
+        $customerId = Session::get('custommer_id');
+    @endphp
+
+                    @if ($customerId)
+                        @php
+                            $customer = \App\Models\Customer::find($customerId);
+                        @endphp
+
+                        @if ($customer && $customer->image)
+                            <img src="{{ asset($customer->image) }}" alt="Customer Profile Picture">
+                        @else
+                            <img src="{{ asset('front/assets/images/thumbs/user-profile.png') }}" alt="Default Profile Picture">
+                        @endif
+                    @else
+                        <img src="" alt="Default Profile Picture">
+                    @endif
+</span>
+
                         </button>
                         <ul class="user-profile-dropdown">
                             <li class="sidebar-list__item">
