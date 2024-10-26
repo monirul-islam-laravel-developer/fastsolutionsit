@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->nullable();
             $table->longText('body')->nullable();
             $table->text('image')->nullable();
+            $table->longText('seo_tag')->nullable();
             $table->tinyInteger('status')->default(1)->comment('1 is active 0 is In active');
             $table->timestamps();
         });

@@ -36,6 +36,8 @@ class Theme extends Model
         self::$theme->support=$request->support;
         self::$theme->detail=$request->detail;
         self::$theme->more_detail=$request->more_detail;
+        self::$theme->seo_tag=$request->input('seo_tag');
+
         if ($request->file('image'))
         {
             self::$theme->image=self::getImageUrl($request);
@@ -70,6 +72,7 @@ class Theme extends Model
         self::$theme->support=$request->support;
         self::$theme->detail=$request->detail;
         self::$theme->more_detail=$request->more_detail;
+        self::$theme->seo_tag=$request->input('seo_tag');
         self::$theme->image=self::$imageUrl;
         self::$theme->save();
 

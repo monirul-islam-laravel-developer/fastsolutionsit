@@ -1,3 +1,17 @@
+@php
+    // Fetch the user type of the authenticated user
+    $userType = auth()->user()->user_type;
+
+    // Initialize roleRoutes variable
+    $roleRoutes = [];
+
+    // If user_type is not 1, fetch the role IDs and route names
+    if ($userType !== 1) {
+        $roleIds = DB::table('user_role')->where('user_id', auth()->user()->id)->pluck('role_id')->toArray();
+        $roleRoutes = DB::table('role_routes')->whereIn('role_id', $roleIds)->pluck('route_name')->toArray();
+    }
+@endphp
+
 <div class="main-sidemenu">
     <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg"
                                                           fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">
@@ -17,6 +31,7 @@
         <li>
             <h3>Components</h3>
         </li>
+        @if ($userType === 1 || !empty(array_filter(['category.index', 'subcategory.index', 'logos.index', 'privacyPolicy.index', 'slider.index', 'aboutus.index', 'info.index'], fn($route) => in_array($route, $roleRoutes))))
         <li class="slide">
             <a class="side-menu__item" data-bs-toggle="slide" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -24,15 +39,55 @@
             </a>
             <ul class="slide-menu">
                 <li class="side-menu-label1"><a href="javascript:void(0)">Forms</a></li>
+                @if ($userType === 1 || in_array('category.index', $roleRoutes))
                 <li><a href="{{route('category.index')}}" class="slide-item">Category</a></li>
+                @endif
+                @if ($userType === 1 || in_array('subcategory.index', $roleRoutes))
                 <li><a href="{{route('subcategory.index')}}" class="slide-item">SubCategory</a></li>
+                @endif
+                @if ($userType === 1 || in_array('logos.index', $roleRoutes))
                 <li><a href="{{route('logos.index')}}" class="slide-item">Logo</a></li>
+                @endif
+                @if ($userType === 1 || in_array('privacyPolicy.index', $roleRoutes))
                 <li><a href="{{route('privacyPolicy.index')}}" class="slide-item">Privacy & Policy</a></li>
+                @endif
+                @if ($userType === 1 || in_array('slider.index', $roleRoutes))
                 <li><a href="{{route('slider.index')}}" class="slide-item">Slider</a></li>
+                @endif
+                @if ($userType === 1 || in_array('aboutus.index', $roleRoutes))
                 <li><a href="{{route('aboutus.index')}}" class="slide-item">About US</a></li>
+                @endif
+                @if ($userType === 1 || in_array('info.index', $roleRoutes))
                 <li><a href="{{route('info.index')}}" class="slide-item">Info</a></li>
+                @endif
             </ul>
         </li>
+        @endif
+        @if ($userType === 1 || !empty(array_filter(['role.add', 'role.manage', 'user.add', 'user.manage'], fn($route) => in_array($route, $roleRoutes))))
+        <li class="slide">
+            <a class="side-menu__item" data-bs-toggle="slide" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                    <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zm0 8c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zM12 14c-3.859 0-7 3.141-7 7h2c0-2.757 2.243-5 5-5s5 2.243 5 5h2c0-3.859-3.141-7-7-7z"/>
+                </svg>
+                <span class="side-menu__label">User Modiule</span><i class="angle fa fa-angle-right"></i>
+            </a>
+            <ul class="slide-menu">
+                <li class="side-menu-label1"><a href="javascript:void(0)">Forms</a></li>
+                @if ($userType === 1 || in_array('role.add', $roleRoutes))
+                <li><a href="{{route('role.add')}}" class="slide-item">Role add</a></li>
+                @endif
+                @if ($userType === 1 || in_array('role.manage', $roleRoutes))
+                <li><a href="{{route('role.manage')}}" class="slide-item">Role manage</a></li>
+                @endif
+                @if ($userType === 1 || in_array('user.add', $roleRoutes))
+                <li><a href="{{route('user.add')}}" class="slide-item">User add</a></li>
+                @endif
+                @if ($userType === 1 || in_array('user.manage', $roleRoutes))
+                <li><a href="{{route('user.manage')}}" class="slide-item">User manage</a></li>
+                @endif
+            </ul>
+        </li>
+        @endif
         <li class="slide">
             <a class="side-menu__item" data-bs-toggle="slide" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M19,2H9C7.3438721,2.0018311,6.0018311,3.3438721,6,5v1H5C3.3438721,6.0018311,2.0018311,7.3438721,2,9v10c0.0018311,1.6561279,1.3438721,2.9981689,3,3h10c1.6561279-0.0018311,2.9981689-1.3438721,3-3v-1h1c1.6561279-0.0018311,2.9981689-1.3438721,3-3V5C21.9981689,3.3438721,20.6561279,2.0018311,19,2z M17,19c-0.0014038,1.1040039-0.8959961,1.9985962-2,2H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2v-8h14V19z M17,10H3V9c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V10z M21,15c-0.0014038,1.1040039-0.8959961,1.9985962-2,2h-1V9c-0.0008545-0.7719116-0.3010864-1.4684448-0.7803345-2H21V15z M21,6H7V5c0.0014038-1.1040039,0.8959961-1.9985962,2-2h10c1.1040039,0.0014038,1.9985962,0.8959961,2,2V6z"/></svg>

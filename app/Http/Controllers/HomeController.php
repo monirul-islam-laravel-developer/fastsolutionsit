@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Session;
 
 class HomeController extends Controller
 {
+    public $subcategories;
     public function index()
     {
-
-        return view('front.home.home');
+        $this->subcategories=SubCategory::all();
+        return view('front.home.home',['subcategories'=>$this->subcategories]);
     }
 
 }

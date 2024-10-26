@@ -39,6 +39,7 @@
                                             <th class="border-bottom-0">Name</th>
                                             <th class="border-bottom-0">Image</th>
                                             <th class="border-bottom-0">Status</th>
+                                            <th class="border-bottom-0">Premelink</th>
                                             <th class="border-bottom-0">Action</th>
                                         </tr>
                                         </thead>
@@ -59,6 +60,17 @@
                                                     @endif
 
                                                 </td>
+                                                <td>
+                                                    @php
+                                                        $url = url('detail/' . Str::slug($theme->sub_category->name) . '/' . Str::slug($theme->slug) ?? $theme->id);
+                                                    @endphp
+
+                                                    <a href="javascript:void(0);" onclick="copyUrl('{{ $url }}')">Copy URL</a>
+                                                </td>
+
+
+
+
 
                                                 <td>
                                                     <a href="{{route('theme.edit',$theme->id)}}" class="btn btn-success btn-lg" title="Edit">
@@ -99,6 +111,28 @@
             </div>
         </div>
     </div>
+    <td>
+        @php
+            $url = url('detail/' . Str::slug($theme->sub_category->name) . '/' . Str::slug($theme->slug) ?? $theme->id);
+        @endphp
+
+        <a href="javascript:void(0);" onclick="copyUrl('{{ $url }}')">Copy URL</a>
+        <span id="copyMessage" style="display: none; color: green; margin-left: 5px;">Copied</span>
+    </td>
+
+    <script>
+        function copyUrl(url) {
+            // Copy the URL to the clipboard
+            const tempInput = document.createElement('input');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('your link copyed');
+        }
+    </script>
+
 @endsection
 
 

@@ -43,6 +43,10 @@
                                         <input class="form-control file-input" type="file" name="image" id="formFile" onchange="previewImage(this)">
                                         <img id="imagePreview" src="{{ asset($blog->image) }}" alt="Category Image Preview" class="img-fluid {{ $blog->image ? '' : 'd-none' }}" height="80" width="120">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="key_words">Seo Tags</label>
+                                        <input type="text" name="seo_tag" class="form-control" id="key_words" value="{{$blog->seo_tag}}" data-role="tagsinput" placeholder="Enter tags">
+                                    </div>
                                     <div class="col-12 d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary btn-w-md mt-3">Submit</button>
                                     </div>

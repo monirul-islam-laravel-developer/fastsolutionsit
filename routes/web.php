@@ -19,6 +19,19 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerOrderController;
 use App\Http\Middleware\CustomerMiddleware;
 use App\Http\Controllers\CatSubController;
+use App\Models\RoleRoute;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
+function getRoleName($routeName)
+{
+    $routesData = RoleRoute::where('route_name', $routeName)->get();
+    $result = [];
+    foreach ($routesData as $routeData) {
+        array_push($result, $routeData->role_name);
+    }
+    return $result;
+}
 
 
     Route::get('/',[HomeController::class,'index'])->name('home');
@@ -42,16 +55,35 @@ use App\Http\Controllers\CatSubController;
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function ()
     {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+        Route::get('/get-sub-category-by-id',[CatSubController::class,'getSubCategory'])->name('product.sub-category');
 
-    Route::resource('category',CategoryController::class);
-    Route::get('/get-sub-category-by-id',[CatSubController::class,'getSubCategory'])->name('product.sub-category');
-    Route::resource('subcategory',SubCategoryController::class);
-    Route::resource('logos',LogoController::class);
-    Route::resource('privacyPolicy',PrivacyPolicyController::class);
-    Route::resource('slider',SliderController::class);
-    Route::resource('aboutus',AboutUsController::class);
-    Route::resource('info',InfoController::class);
-    Route::resource('theme',ThemeController::class);
-    Route::resource('blog',BlogController::class);
+        Route::middleware(['roles'])->group(function () {
+            Route::group(['prefix' => 'role'], function () {
+                Route::get('/add', [RoleController::class, 'index'])->name('role.add');
+                Route::post('/new', [RoleController::class, 'create'])->name('role.new');
+                Route::get('/manage', [RoleController::class, 'manage'])->name('role.manage');
+                Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+                Route::post('/update/{id}', [RoleController::class, 'update'])->name('role.update');
+                Route::get('/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+            });
 
+            Route::prefix('user')->group(function () {
+                Route::get('/add', [UserController::class, 'index'])->name('user.add');
+                Route::post('/new', [UserController::class, 'create'])->name('user.new');
+                Route::get('/manage', [UserController::class, 'manage'])->name('user.manage');
+                Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+                Route::post('/update/{id}', [UserController::class, 'update'])->name('user.update');
+                Route::get('/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
+            });
+
+            Route::resource('category',CategoryController::class);
+            Route::resource('subcategory',SubCategoryController::class);
+            Route::resource('logos',LogoController::class);
+            Route::resource('privacyPolicy',PrivacyPolicyController::class);
+            Route::resource('slider',SliderController::class);
+            Route::resource('aboutus',AboutUsController::class);
+            Route::resource('info',InfoController::class);
+            Route::resource('theme',ThemeController::class);
+            Route::resource('blog',BlogController::class);
+        });
     });

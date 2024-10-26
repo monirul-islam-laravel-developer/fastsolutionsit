@@ -1,5 +1,4 @@
 @extends('admin.master.master')
-
 @section('title')
     Theme Edit Page
 @endsection
@@ -89,6 +88,10 @@
                                         <input class="form-control file-input" type="file" name="image" id="formFile" onchange="previewImage(this)">
                                         <img id="imagePreview" src="{{ asset($theme->image) }}" alt="Category Image Preview" class="img-fluid {{ $theme->image ? '' : 'd-none' }}" height="80" width="120">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="key_words">Seo Tags</label>
+                                        <input type="text" name="seo_tag" class="form-control" id="key_words" value="{{$theme->seo_tag}}" data-role="tagsinput" placeholder="Enter tags">
+                                    </div>
                                     <div class="col-12 d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary btn-w-md mt-3">Update</button>
                                     </div>
@@ -137,6 +140,9 @@
             height: 100
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 @endsection
 
 

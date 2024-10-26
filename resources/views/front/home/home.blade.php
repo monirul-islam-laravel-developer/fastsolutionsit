@@ -161,9 +161,7 @@
                     </a>
                 </div>
             </div>
-            <div class="popular__button text-center">
-                <a href="all-product.html" class="font-18 fw-600 text-heading hover-text-main text-decoration-underline font-heading">Explore Our Project</a>
-            </div>
+
         </div>
     </section>
     <!-- ======================== popular Section End =========================== -->
@@ -175,7 +173,7 @@
 
         <div class="container container-two">
             <div class="section-heading">
-                <h3 class="section-heading__title">New Arrival Products</h3>
+                <h3 class="section-heading__title">Latest Laravel Project</h3>
             </div>
 
             <ul class="nav common-tab justify-content-center nav-pills mb-48" id="pills-tab" role="tablist">
@@ -2858,6 +2856,2421 @@
 
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center mt-64">
+                <a href="all-product.html" class="btn btn-main btn-lg pill fw-300">
+                    View All Products
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section class="arrival-product padding-y-120 section-bg position-relative z-index-1">
+        <img src="{{asset('/')}}front/assets/images/gradients/product-gradient.png" alt="" class="bg--gradient white-version">
+
+        <img src="{{asset('/')}}front/assets/images/shapes/element2.png" alt="" class="element one">
+
+        <div class="container container-two">
+            <div class="section-heading">
+                <h3 class="section-heading__title">New Arrival Products</h3>
+            </div>
+
+            <ul class="nav common-tab justify-content-center nav-pills mb-48" id="pills-tab" role="tablist">
+                @foreach($subcategories as $subcategory)
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {{ $loop->first ? 'active' : '' }}" id="pills-{{ $subcategory->id }}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ $subcategory->id }}" type="button" role="tab" aria-controls="pills-{{ $subcategory->id }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                            {{$subcategory->name }}
+                        </button>
+                    </li>
+                @endforeach
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                @foreach($subcategories as $subcategory)
+                    <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="pills-{{ $subcategory->id }}" role="tabpanel" aria-labelledby="pills-{{ $subcategory->id }}-tab" tabindex="0">
+
+                        <div class="row gy-4">
+                            @foreach($subcategory->themes as $theme)
+                            <div class="col-xl-3 col-lg-4 col-sm-6">
+                                <div class="product-card ">
+                                    <div class="product-card__thumb d-flex">
+                                        <a href="product-details.html" class="link w-100">
+                                            <img src="{{asset($theme->image)}}" alt="" class="cover-img">
+                                        </a>
+                                        <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
+                                    </div>
+                                    <div class="product-card__content">
+                                        <h6 class="product-card__title">
+                                            <a href="product-details.html" class="link">{{$theme->name}}</a>
+                                        </h6>
+                                        <div class="product-card__info flx-between gap-2">
+                                            <span class="product-card__author">
+                                                by
+                                                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
+                                            </span>
+                                            <div class="flx-align gap-2">
+                                                <h6 class="product-card__price mb-0">Tk.{{$theme->selling_price}}</h6>
+                                                <span class="product-card__prevPrice text-decoration-line-through">Tk.{{$theme->regular_price}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-card__bottom flx-between gap-2">
+                                            <div>
+{{--                                                <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                                <div class="d-flex align-items-center gap-1">--}}
+{{--                                                    <ul class="star-rating">--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                    <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+                                                </div>
+                                            </div>
+                                            <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                            <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Detail</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+
+            {{--                <div class="tab-pane fade" id="pills-wordPress" role="tabpanel" aria-labelledby="pills-wordPress-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-php" role="tabpanel" aria-labelledby="pills-php-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-siteTemplate" role="tabpanel" aria-labelledby="pills-siteTemplate-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-blogging" role="tabpanel" aria-labelledby="pills-blogging-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-marketing" role="tabpanel" aria-labelledby="pills-marketing-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-plugins" role="tabpanel" aria-labelledby="pills-plugins-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="tab-pane fade" id="pills-uiTemplate" role="tabpanel" aria-labelledby="pills-uiTemplate-tab" tabindex="0">--}}
+{{--                    <div class="row gy-4">--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$120</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$59</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$99</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$129</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-xl-3 col-lg-4 col-sm-6">--}}
+{{--                            <div class="product-card ">--}}
+{{--                                <div class="product-card__thumb d-flex">--}}
+{{--                                    <a href="product-details.html" class="link w-100">--}}
+{{--                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">--}}
+{{--                                    </a>--}}
+{{--                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>--}}
+{{--                                </div>--}}
+{{--                                <div class="product-card__content">--}}
+{{--                                    <h6 class="product-card__title">--}}
+{{--                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>--}}
+{{--                                    </h6>--}}
+{{--                                    <div class="product-card__info flx-between gap-2">--}}
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
+{{--                                        <div class="flx-align gap-2">--}}
+{{--                                            <h6 class="product-card__price mb-0">$79</h6>--}}
+{{--                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="product-card__bottom flx-between gap-2">--}}
+{{--                                        <div>--}}
+{{--                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>--}}
+{{--                                            <div class="d-flex align-items-center gap-1">--}}
+{{--                                                <ul class="star-rating">--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                </ul>--}}
+{{--                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
 
             <div class="text-center mt-64">

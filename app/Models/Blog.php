@@ -26,7 +26,11 @@ class Blog extends Model
         self::$blog->title=$request->title;
         self::$blog->slug=Str::slug($request->title);
         self::$blog->body=$request->body;
-        self::$blog->image=self::getImageUrl($request);
+        if ($request->file('image'))
+        {
+            self::$blog->image=self::getImageUrl($request);
+        }
+        self::$blog->seo_tag=$request->input('seo_tag');
         self::$blog->save();
     }
     public static function updateBlog($request,$id)
@@ -48,6 +52,7 @@ class Blog extends Model
         self::$blog->slug=Str::slug($request->title);
         self::$blog->body=$request->body;
         self::$blog->image=self::$imageUrl;
+        self::$blog->seo_tag=$request->input('seo_tag');
         self::$blog->save();
     }
 }

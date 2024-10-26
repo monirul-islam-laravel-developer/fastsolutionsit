@@ -60,4 +60,9 @@ class SubCategory extends Model
         self::$subcategory->image=self::$imageUrl;
         self::$subcategory->save();
     }
+
+    public function themes()
+    {
+        return $this->hasMany(Theme::class);
+    }
 }
