@@ -66,7 +66,7 @@
                                                 <div>
 {{--                                                    <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
                                                     <div class="d-flex align-items-center gap-1">
-                                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                                        <a href="{{$theme->link}}" class="btn btn-outline-light btn-sm pill">Live Demo</a>
 {{--                                                        <ul class="star-rating">--}}
 {{--                                                            <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
 {{--                                                            <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}

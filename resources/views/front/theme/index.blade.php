@@ -136,7 +136,7 @@
                                     <img src="{{asset($theme->image)}}" alt="" >
                                 </div>
                                 <div class="product-details__buttons flx-align justify-content-center gap-3">
-                                    <a href="#" class="btn btn-main d-inline-flex align-items-center gap-2 pill px-sm-5 justify-content-center">Live Preview
+                                    <a target="_blank" href="{{$theme->link}}" class="btn btn-main d-inline-flex align-items-center gap-2 pill px-sm-5 justify-content-center">Live Preview
                                         <img src="{{asset('/')}}front/assets/images/icons/eye-outline.svg" alt="">
                                     </a>
 
