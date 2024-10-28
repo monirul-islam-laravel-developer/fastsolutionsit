@@ -13,14 +13,6 @@ jobs:
       - uses: actions/setup-node@master
       - name: Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
-      - name: 📂 Sync public
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME_ASSETS }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /
-          local-dir: public/
       - name: 📂 Sync files to /fastsolutionsit
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -29,5 +21,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: /
           local-dir: ./
-          exclude: |
-            */public/*
