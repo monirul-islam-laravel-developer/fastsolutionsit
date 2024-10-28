@@ -6,7 +6,6 @@ use Illuminate\Foundation\Configuration\Middleware;
 use App\Http\Middleware\CustomerMiddleware;
 use App\Http\Middleware\Loginmiddleware;
 use App\Http\Middleware\CheckRoleMiddleware;
-
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
@@ -19,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
               'customer'=>CustomerMiddleware::class,
               'customerlogin'=>Loginmiddleware::class,
               'roles'=>CheckRoleMiddleware::class,
+
           ]);
 
       })
