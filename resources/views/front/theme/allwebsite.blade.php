@@ -246,7 +246,7 @@
                                     <div class="product-card section-bg">
                                         <div class="product-card__thumb d-flex">
                                             <a href="product-details.html" class="link w-100">
-                                                <img src="{{ asset('/') }}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">
+                                                <img src="{{ asset($themes->image) }}" alt="" class="cover-img">
                                             </a>
                                             <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
                                         </div>
