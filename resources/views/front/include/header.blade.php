@@ -30,42 +30,22 @@
                             </ul>
                         </li>
                     @endforeach
-                    <li class="nav-menu__item has-submenu">
-                        <a href="javascript:void(0)" class="nav-menu__link">Pages</a>
-                        <ul class="nav-submenu">
-                            <li class="nav-submenu__item">
-                                <a href="profile.html" class="nav-submenu__link"> Profile</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="{{route('add-to-cart')}}" class="nav-submenu__link"> Shopping Cart</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="cart-personal.html" class="nav-submenu__link"> Mailing Address</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="cart-payment.html" class="nav-submenu__link"> Payment Method</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="cart-thank-you.html" class="nav-submenu__link"> Preview Order</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="dashboard.html" class="nav-submenu__link"> Dashboard</a>
-                            </li>
-                        </ul>
+                    <li class="nav-menu__item">
+                        <a href="{{route('all-website')}}" class="nav-menu__link">All Website</a>
                     </li>
-                    <li class="nav-menu__item has-submenu">
-                        <a href="javascript:void(0)" class="nav-menu__link">Blog</a>
-                        <ul class="nav-submenu">
-                            <li class="nav-submenu__item">
-                                <a href="blog.html" class="nav-submenu__link"> Blog</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>
-                            </li>
-                            <li class="nav-submenu__item">
-                                <a href="blog-details-sidebar.html" class="nav-submenu__link"> Blog Details Sidebar</a>
-                            </li>
-                        </ul>
+                    <li class="nav-menu__item ">
+                        <a href="{{route('front-allblogs')}}" class="nav-menu__link"> All Blog</a>
+{{--                        <ul class="nav-submenu">--}}
+{{--                            <li class="nav-submenu__item">--}}
+{{--                                <a href="blog.html" class="nav-submenu__link"> Blog</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-submenu__item">--}}
+{{--                                <a href="blog-details.html" class="nav-submenu__link"> Blog Details</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-submenu__item">--}}
+{{--                                <a href="blog-details-sidebar.html" class="nav-submenu__link"> Blog Details Sidebar</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
                     </li>
                     <li class="nav-menu__item">
                         <a href="contact.html" class="nav-menu__link">Contact</a>
@@ -74,8 +54,10 @@
             </div>
             <!-- Menu End  -->
 
+
             <!-- Header Right start -->
             <div class="header-right flx-align">
+
 
                 <!-- Cart Button (commented out) -->
             {{-- <a href="{{ route('add-to-cart') }}" class="header-right__button cart-btn position-relative">

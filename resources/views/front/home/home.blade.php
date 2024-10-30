@@ -5477,40 +5477,41 @@
                             <div class="col-sm-6">
                                 <div class="product-card box-shadow">
                                     <div class="product-card__thumb d-flex">
-                                        <a href="product-details.html" class="link w-100">
-                                            <img src="{{asset('/')}}front/assets/images/thumbs/product-img9.png" alt="" class="cover-img">
+                                        <a href="{{route('detail',['categorySlug'=>$templet4->sub_category->slug,'postSlug'=>$templet4->slug])}}" class="link w-100">
+                                            <img src="{{asset($templet4->image)}}" alt="" class="cover-img">
                                         </a>
                                         <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
                                     </div>
                                     <div class="product-card__content">
                                         <h6 class="product-card__title">
-                                            <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
+                                            <a href="{{route('detail',['categorySlug'=>$templet4->sub_category->slug,'postSlug'=>$templet4->slug])}}" class="link">{{$templet4->name}}</a>
                                         </h6>
                                         <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
+{{--            <span class="product-card__author">--}}
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
+{{--            </span>--}}
                                             <div class="flx-align gap-2">
-                                                <h6 class="product-card__price mb-0">$120</h6>
-                                                <span class="product-card__prevPrice text-decoration-line-through">$259</span>
+                                                <h6 class="product-card__price mb-0">Tk.{{$templet4->selling_price}}</h6>
+                                                <span class="product-card__prevPrice text-decoration-line-through">Tk.{{$templet4->regular_price}}</span>
                                             </div>
                                         </div>
                                         <div class="product-card__bottom flx-between gap-2">
                                             <div>
-                                                <span class="product-card__sales font-14 mb-2">1200 Sales</span>
+{{--                                                <span class="product-card__sales font-14 mb-2">1200 Sales</span>--}}
                                                 <div class="d-flex align-items-center gap-1">
-                                                    <ul class="star-rating">
-                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                    <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
+{{--                                                    <ul class="star-rating">--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                        <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>--}}
+{{--                                                    </ul>--}}
+{{--                                                    <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
                                                 </div>
                                             </div>
-                                            <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                            <a target="_blank" href="{{$templet4->link}}" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                            <a href="{{route('detail',['categorySlug'=>$templet4->sub_category->slug,'postSlug'=>$templet4->slug])}}" class="btn btn-success btn-sm pill">Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -5586,84 +5587,39 @@
 {{--                <div class="section-heading__inner">--}}
 {{--                    <h3 class="section-heading__title">Browse all latest blogs and articles</h3>--}}
 {{--                </div>--}}
-                <a href="blog.html" class="btn btn-main btn-lg pill">Browse All Articles </a>
+                <a href="{{route('front-allblogs')}}" class="btn btn-main btn-lg pill">Browse All Blogs </a>
             </div>
             <div class="row gy-4">
+                @foreach($blogs3 as $blog3)
                 <div class="col-lg-4 col-sm-6">
                     <div class="blog-item">
                         <div class="blog-item__thumb">
-                            <a href="blog-details.html" class="link">
-                                <img src="{{asset('/')}}front/assets/images/thumbs/blog1.png" class="cover-img" alt="">
+                            <a href="{{route('blogs-detail',['id'=>$blog3->id])}}" class="link">
+                                <img src="{{ asset($blog3->image) }}" class="cover-img" alt="Blog Image" style="height: 300px; width: 500px;">
+
                             </a>
                         </div>
                         <div class="blog-item__content">
                             <div class="blog-item__top flx-align">
-                                <a href="blog.html" class="blog-item__tag pill font-14 text-heading fw-500 hover-text-main">Hiring</a>
+{{--                                <a href="blog.html" class="blog-item__tag pill font-14 text-heading fw-500 hover-text-main">Hiring</a>--}}
                                 <div class="blog-item__date font-14 flx-align gap-2 font-14 text-heading fw-500">
                     <span class="icon">
                         <img src="{{asset('/')}}front/assets/images/icons/calendar.svg" alt="" class="white-version">
                         <img src="{{asset('/')}}front/assets/images/icons/calendar-white.svg" alt="" class="dark-version">
                     </span>
-                                    <span class="text">Jan 17, 2024</span>
+                                    <span class="text">{{ $blog3->created_at->format('F j, Y') }}</span>
+
                                 </div>
                             </div>
-                            <h5 class="blog-item__title">
-                                <a href="blog-details.html" class="link">How to hire a right business executive for your company</a>
+                            <h5 class="title">
+                                <a href="{{route('blogs-detail',['id'=>$blog3->id])}}" class="link">{{ $blog3->title}}</a>
                             </h5>
-                            <a href="blog-details.html" class="btn btn-outline-light pill fw-600">Read More </a>
+                            <a href="{{route('blogs-detail',['id'=>$blog3->id])}}" class="btn btn-outline-light pill fw-600">Read More </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="blog-item">
-                        <div class="blog-item__thumb">
-                            <a href="blog-details.html" class="link">
-                                <img src="{{asset('/')}}front/assets/images/thumbs/blog2.png" class="cover-img" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-item__content">
-                            <div class="blog-item__top flx-align">
-                                <a href="blog.html" class="blog-item__tag pill font-14 text-heading fw-500 hover-text-main">Workshop</a>
-                                <div class="blog-item__date font-14 flx-align gap-2 font-14 text-heading fw-500">
-                    <span class="icon">
-                        <img src="{{asset('/')}}front/assets/images/icons/calendar.svg" alt="" class="white-version">
-                        <img src="{{asset('/')}}front/assets/images/icons/calendar-white.svg" alt="" class="dark-version">
-                    </span>
-                                    <span class="text">Jan 17, 2024</span>
-                                </div>
-                            </div>
-                            <h5 class="blog-item__title">
-                                <a href="blog-details.html" class="link">The Gig Economy: Adapting to a Flexible Workforce</a>
-                            </h5>
-                            <a href="blog-details.html" class="btn btn-outline-light pill fw-600">Read More </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="blog-item">
-                        <div class="blog-item__thumb">
-                            <a href="blog-details.html" class="link">
-                                <img src="{{asset('/')}}front/assets/images/thumbs/blog3.png" class="cover-img" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-item__content">
-                            <div class="blog-item__top flx-align">
-                                <a href="blog.html" class="blog-item__tag pill font-14 text-heading fw-500 hover-text-main">Project Management</a>
-                                <div class="blog-item__date font-14 flx-align gap-2 font-14 text-heading fw-500">
-                    <span class="icon">
-                        <img src="{{asset('/')}}front/assets/images/icons/calendar.svg" alt="" class="white-version">
-                        <img src="{{asset('/')}}front/assets/images/icons/calendar-white.svg" alt="" class="dark-version">
-                    </span>
-                                    <span class="text">Jan 17, 2024</span>
-                                </div>
-                            </div>
-                            <h5 class="blog-item__title">
-                                <a href="blog-details.html" class="link">The Future of Remote Work: Strategies for Success</a>
-                            </h5>
-                            <a href="blog-details.html" class="btn btn-outline-light pill fw-600">Read More </a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -5719,34 +5675,34 @@
     <!-- ======================= Become seller section End ==================== -->
 
     <!-- ======================== Brand Section Start ========================= -->
-    <div class="brand ">
-        <div class="container container">
-            <div class="brand-slider">
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img1.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img1.png" alt="" class="dark-version">
-                </div>
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img2.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img2.png" alt="" class="dark-version">
-                </div>
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">
-                </div>
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img4.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img4.png" alt="" class="dark-version">
-                </div>
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img5.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img5.png" alt="" class="dark-version">
-                </div>
-                <div class="brand-item d-flex align-items-center justify-content-center">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">
-                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="brand ">--}}
+{{--        <div class="container container">--}}
+{{--            <div class="brand-slider">--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img1.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img1.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img2.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img2.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img4.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img4.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img5.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img5.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--                <div class="brand-item d-flex align-items-center justify-content-center">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">--}}
+{{--                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 @endsection

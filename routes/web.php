@@ -22,6 +22,7 @@ use App\Http\Controllers\CatSubController;
 use App\Models\RoleRoute;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FrontBlogController;
 
 function getRoleName($routeName)
 {
@@ -35,8 +36,11 @@ function getRoleName($routeName)
 
 
     Route::get('/',[HomeController::class,'index'])->name('home');
+    Route::get('/all-blogs',[FrontBlogController::class,'index'])->name('front-allblogs');
+    Route::get('/blogs-detail/{id}',[FrontBlogController::class,'detail'])->name('blogs-detail');
     Route::get('/cat/{slug}', [FrontCategoryController::class, 'index'])->name('single-category');
     Route::get('/detail/{categorySlug}/{postSlug}', [FrontThemeController::class, 'index'])->name('detail');
+    Route::get('/all-website', [FrontThemeController::class, 'allWebsite'])->name('all-website');
     Route::get('cart-page', [CartController::class, 'index'])->name('add-to-cart');
     Route::get('order-page/{id}/{slug}', [CustomerOrderController::class, 'index'])->name('order-page');
     Route::get('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order');
