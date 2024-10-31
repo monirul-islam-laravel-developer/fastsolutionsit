@@ -30,7 +30,8 @@
                                     <span class="breadcrumb-list__icon font-10"><i class="fas fa-chevron-right"></i></span>
                                 </li>
                                 <li class="breadcrumb-list__item font-14 text-body">
-                                    <span class="breadcrumb-list__text">{{$theme->name}} </span>
+                                    <span class="breadcrumb-item" >{{$theme->name}}</span>
+
                                     <span class="breadcrumb-list__icon font-10"><i class="fas fa-chevron-right"></i></span>
                                 </li>
                                 <li class="breadcrumb-list__item font-14 text-body">
@@ -38,33 +39,44 @@
                                 </li>
                             </ul>
 
-                            <h3 class="breadcrumb-two-content__title mb-3 text-capitalize">{{$theme->name}}</h3>
+                            <h3 style="
+    text-align: center;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background */
+    border: 1px solid #dee2e6; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    display: inline-block; /* Shrinks the box to fit the text */
+    width: 100%;
+    font-weight: bold;
+" class="breadcrumb-two-content__title mb-3 text-capitalize">
+                                {{$theme->name}}
+                            </h3>
 
                             <div class="breadcrumb-content flx-align gap-3">
                                 <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
 
                                 </div>
-                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
-                                <span class="icon">
-                                    <img src="{{asset('/')}}front/assets/images/icons/cart-icon.svg" alt="" class="white-version">
-                                    <img src="{{asset('/')}}front/assets/images/icons/cart-white.svg" alt="" class="dark-version w-20">
-                                </span>
+{{--                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">--}}
+{{--                                <span class="icon">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/cart-icon.svg" alt="" class="white-version">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/cart-white.svg" alt="" class="dark-version w-20">--}}
+{{--                                </span>--}}
 
-                                </div>
-                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
-                                <span class="icon">
-                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon.svg" alt="" class="white-version">
-                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon-white.svg" alt="" class="dark-version">
-                                </span>
-                                    <span class="text">Recently Updated</span>
-                                </div>
-                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">
-                                <span class="icon">
-                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon.svg" alt="" class="white-version">
-                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon-white.svg" alt="" class="dark-version">
-                                </span>
-                                    <span class="text">Well Documented</span>
-                                </div>
+{{--                                </div>--}}
+{{--                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">--}}
+{{--                                <span class="icon">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon.svg" alt="" class="white-version">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon-white.svg" alt="" class="dark-version">--}}
+{{--                                </span>--}}
+{{--                                    <span class="text">Recently Updated</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="breadcrumb-content__item text-heading fw-500 flx-align gap-2">--}}
+{{--                                <span class="icon">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon.svg" alt="" class="white-version">--}}
+{{--                                    <img src="{{asset('/')}}front/assets/images/icons/check-icon-white.svg" alt="" class="dark-version">--}}
+{{--                                </span>--}}
+{{--                                    <span class="text">Well Documented</span>--}}
+{{--                                </div>--}}
                             </div>
 
                         </div>
@@ -73,51 +85,51 @@
             </div>
         </div>
 
-        <div class="container container-two">
-            <div class="breadcrumb-tab flx-wrap align-items-start gap-lg-4 gap-2">
-                <ul class="nav tab-bordered nav-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-product-details-tab" data-bs-toggle="pill" data-bs-target="#pills-product-details" type="button" role="tab" aria-controls="pills-product-details" aria-selected="true">Product Details</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-rating-tab" data-bs-toggle="pill" data-bs-target="#pills-rating" type="button" role="tab" aria-controls="pills-rating" aria-selected="false">
-                    <span class="d-flex align-items-center gap-1">
-                        <span class="star-rating">
-                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>
-                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>
-                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>
-                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>
-                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>
-                        </span>
-                        <span class="star-rating__text text-body"> 5.0</span>
-                        <span class="star-rating__text text-body"> (180)</span>
-                    </span>
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-comments-tab" data-bs-toggle="pill" data-bs-target="#pills-comments" type="button" role="tab" aria-controls="pills-comments" aria-selected="false">Comments (50)</button>
-                    </li>
-                </ul>
-                <div class="social-share">
-                    <button type="button" class="social-share__button">
-                        <img src="{{asset('/')}}front/assets/images/icons/share-icon.svg" alt="">
-                    </button>
-                    <div class="social-share__icons">
-                        <ul class="social-list colorful-style">
-                            <li class="social-list__item">
-                                <a href="https://www.facebook.com/" class="social-list__link text-body flex-center"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li class="social-list__item">
-                                <a href="https://www.twitter.com/" class="social-list__link text-body flex-center"> <i class="fab fa-linkedin-in"></i></a>
-                            </li>
-                            <li class="social-list__item">
-                                <a href="https://www.google.com/" class="social-list__link text-body flex-center"> <i class="fab fa-twitter"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+{{--        <div class="container container-two">--}}
+{{--            <div class="breadcrumb-tab flx-wrap align-items-start gap-lg-4 gap-2">--}}
+{{--                <ul class="nav tab-bordered nav-pills" id="pills-tab" role="tablist">--}}
+{{--                    <li class="nav-item" role="presentation">--}}
+{{--                        <button class="nav-link active" id="pills-product-details-tab" data-bs-toggle="pill" data-bs-target="#pills-product-details" type="button" role="tab" aria-controls="pills-product-details" aria-selected="true">Product Details</button>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item" role="presentation">--}}
+{{--                        <button class="nav-link" id="pills-rating-tab" data-bs-toggle="pill" data-bs-target="#pills-rating" type="button" role="tab" aria-controls="pills-rating" aria-selected="false">--}}
+{{--                    <span class="d-flex align-items-center gap-1">--}}
+{{--                        <span class="star-rating">--}}
+{{--                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>--}}
+{{--                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>--}}
+{{--                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>--}}
+{{--                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>--}}
+{{--                            <span class="star-rating__item font-11"><i class="fas fa-star"></i></span>--}}
+{{--                        </span>--}}
+{{--                        <span class="star-rating__text text-body"> 5.0</span>--}}
+{{--                        <span class="star-rating__text text-body"> (180)</span>--}}
+{{--                    </span>--}}
+{{--                        </button>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item" role="presentation">--}}
+{{--                        <button class="nav-link" id="pills-comments-tab" data-bs-toggle="pill" data-bs-target="#pills-comments" type="button" role="tab" aria-controls="pills-comments" aria-selected="false">Comments (50)</button>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--                <div class="social-share">--}}
+{{--                    <button type="button" class="social-share__button">--}}
+{{--                        <img src="{{asset('/')}}front/assets/images/icons/share-icon.svg" alt="">--}}
+{{--                    </button>--}}
+{{--                    <div class="social-share__icons">--}}
+{{--                        <ul class="social-list colorful-style">--}}
+{{--                            <li class="social-list__item">--}}
+{{--                                <a href="https://www.facebook.com/" class="social-list__link text-body flex-center"><i class="fab fa-facebook-f"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="social-list__item">--}}
+{{--                                <a href="https://www.twitter.com/" class="social-list__link text-body flex-center"> <i class="fab fa-linkedin-in"></i></a>--}}
+{{--                            </li>--}}
+{{--                            <li class="social-list__item">--}}
+{{--                                <a href="https://www.google.com/" class="social-list__link text-body flex-center"> <i class="fab fa-twitter"></i></a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </section>
     <!-- ======================== Breadcrumb Two Section End ===================== -->
@@ -136,11 +148,13 @@
                                     <img src="{{asset($theme->image)}}" alt="" >
                                 </div>
                                 <div class="product-details__buttons flx-align justify-content-center gap-3">
-                                    <a target="_blank" href="{{$theme->link}}" class="btn btn-main d-inline-flex align-items-center gap-2 pill px-sm-5 justify-content-center">Live Preview
+                                    <a target="_blank" href="{{$theme->link}}" class="btn btn-main d-inline-flex align-items-center gap-2 pill px-sm-5 justify-content-center">Live Demo
                                         <img src="{{asset('/')}}front/assets/images/icons/eye-outline.svg" alt="">
                                     </a>
+                                    <a target="_blank" href="{{route('order-page',[$theme->id,$theme->slug])}}" class="btn btn-main d-inline-flex align-items-center gap-2 pill px-sm-5 justify-content-center">Order Now
+                                        <img src="{{asset('/')}}front/assets/images/icons/add-to-cart.svg" alt="">
+                                    </a>
 
-                                    <a href="#" class="screenshot-btn btn btn-white pill px-sm-5" data-images='["{{asset('/')}}front/assets/images/thumbs/product-details.png", "{{asset('/')}}front/assets/images/thumbs/product-details.png"]'>Screenshot</a>
 
 
                                 </div>
@@ -428,330 +442,45 @@
 
         <div class="container container-two">
             <div class="section-heading">
-                <h3 class="section-heading__title">New Arrival Theme</h3>
+                <h3 class="section-heading__title">New Arrival Website</h3>
             </div>
 
 
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab" tabindex="0">
                     <div class="row gy-4">
+                        @foreach($themes8 as $theme8)
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="product-card ">
                                 <div class="product-card__thumb d-flex">
                                     <a href="" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img1.png" alt="" class="cover-img">
+                                        <img src="{{asset($theme8->image)}}" alt="" class="cover-img">
                                     </a>
                                     <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
                                 </div>
                                 <div class="product-card__content">
                                     <h6 class="product-card__title">
-                                        <a href="" class="link">SaaS dashboard digital products Title here</a>
+                                        <a href="" class="link">{{$theme8->name}}</a>
                                     </h6>
                                     <div class="product-card__info flx-between gap-2">
             <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
+{{--                by--}}
+{{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
             </span>
                                         <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$120</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>
+                                            <h6 class="product-card__price mb-0">Tk.{{$theme8->selling_price}}</h6>
+                                            <span class="product-card__prevPrice text-decoration-line-through">Tk.{{$theme8->regular_price}}</span>
                                         </div>
                                     </div>
                                     <div class="product-card__bottom flx-between gap-2">
 
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm ">Add To Cart</a>
+                                        <a target="_blank" href="{{$theme8->link}}" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                        <a href="{{route('detail',['categorySlug'=>$theme8->sub_category->slug,'postSlug'=>$theme8->slug])}}" class="btn btn-success btn-sm ">Detail</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img2.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$129</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$236</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">100 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img3.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$79</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">900 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img4.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$59</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">1225 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img5.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$99</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$129</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">1300 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img6.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$129</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$256</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">200 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img7.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$129</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$259</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">500 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-sm-6">
-                            <div class="product-card ">
-                                <div class="product-card__thumb d-flex">
-                                    <a href="product-details.html" class="link w-100">
-                                        <img src="{{asset('/')}}front/assets/images/thumbs/product-img8.png" alt="" class="cover-img">
-                                    </a>
-                                    <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
-                                </div>
-                                <div class="product-card__content">
-                                    <h6 class="product-card__title">
-                                        <a href="product-details.html" class="link">SaaS dashboard digital products Title here</a>
-                                    </h6>
-                                    <div class="product-card__info flx-between gap-2">
-            <span class="product-card__author">
-                by
-                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>
-            </span>
-                                        <div class="flx-align gap-2">
-                                            <h6 class="product-card__price mb-0">$79</h6>
-                                            <span class="product-card__prevPrice text-decoration-line-through">$99</span>
-                                        </div>
-                                    </div>
-                                    <div class="product-card__bottom flx-between gap-2">
-                                        <div>
-                                            <span class="product-card__sales font-14 mb-2">2100 Sales</span>
-                                            <div class="d-flex align-items-center gap-1">
-                                                <ul class="star-rating">
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                    <li class="star-rating__item font-11"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>
-                                            </div>
-                                        </div>
-                                        <a href="product-details.html" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>

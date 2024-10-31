@@ -13,7 +13,7 @@ class FrontBlogController extends Controller
     public $themes12;
     public function index()
     {
-        $this->blogs = Blog::where('status', 1)->orderBy('id', 'desc')->simplePaginate(1);
+        $this->blogs = Blog::where('status', 1)->orderBy('id', 'desc')->simplePaginate(9);
 
         return view('front.blog.index',['allblogs'=>$this->blogs]);
     }

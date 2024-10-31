@@ -145,7 +145,37 @@
     <!--========================== Banner Section Start ==========================-->
     @yield('body')
     <!-- ======================== Brand Section End ========================= -->
-
+    <div class="brand ">
+        <div class="container container">
+            <div class="brand-slider">
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img1.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img1.png" alt="" class="dark-version">
+                </div>
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img2.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img2.png" alt="" class="dark-version">
+                </div>
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">
+                </div>
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img4.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img4.png" alt="" class="dark-version">
+                </div>
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img5.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img5.png" alt="" class="dark-version">
+                </div>
+                <div class="brand-item d-flex align-items-center justify-content-center">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-img3.png" alt="" class="white-version">
+                    <img src="{{asset('/')}}front/assets/images/thumbs/brand-white-img3.png" alt="" class="dark-version">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ======================== Brand Section End ========================= -->
     <!-- ==================== Footer Start Here ==================== -->
 @include('front.include.footer')
     <!-- ==================== Footer End Here ==================== -->

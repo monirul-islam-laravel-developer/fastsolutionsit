@@ -11,13 +11,18 @@ class FrontThemeController extends Controller
 {
     public $theme;
     public $all_themes;
+    public $themes8;
     public $themeId;
     public function index($categorySlug,$postSlug)
     {
+        $this->themes8=Theme::where('status',1)->latest()->take(8)->get();
         $this->theme=Theme::where('slug',$postSlug)->first();
 //        dd($this->theme);
 //        dd($this->theme->sub_category->slug);
-        return view('front.theme.index', ['theme' =>$this->theme]);
+        return view('front.theme.index', [
+            'theme' =>$this->theme,
+            'themes8'=>$this->themes8
+        ]);
     }
     public function allWebsite()
     {
