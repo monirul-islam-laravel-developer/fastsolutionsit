@@ -19,7 +19,7 @@ class FrontBlogController extends Controller
     }
     public function detail($id)
     {
-        $this->themes12=Theme::where('status',1)->latest()->take(12)->get();
+        $this->themes12=Theme::where('status',1)->orderBy('id','desc')->simplePaginate(9);
         $this->blog=Blog::find($id);
         return view('front.blog.detail',[
             'blog'=>$this->blog,

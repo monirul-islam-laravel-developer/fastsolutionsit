@@ -23,6 +23,8 @@ use App\Models\RoleRoute;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontBlogController;
+use App\Http\Controllers\CuponController;
+use App\Http\Controllers\FrontCuponController;
 
 function getRoleName($routeName)
 {
@@ -41,9 +43,11 @@ function getRoleName($routeName)
     Route::get('/cat/{slug}', [FrontCategoryController::class, 'index'])->name('single-category');
     Route::get('/detail/{categorySlug}/{postSlug}', [FrontThemeController::class, 'index'])->name('detail');
     Route::get('/all-website', [FrontThemeController::class, 'allWebsite'])->name('all-website');
+    Route::get('/search-website', [FrontThemeController::class, 'searchWebsite'])->name('search-website');
     Route::get('cart-page', [CartController::class, 'index'])->name('add-to-cart');
     Route::get('order-page/{id}/{slug}', [CustomerOrderController::class, 'index'])->name('order-page');
     Route::get('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order');
+Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
 
     Route::get('customer-register', [AuthCustommerController::class, 'index'])->name('customer-register')->middleware('customerlogin');
     Route::get('customer-login', [AuthCustommerController::class, 'login'])->name('customer-login')->middleware('customerlogin');
@@ -89,5 +93,6 @@ function getRoleName($routeName)
             Route::resource('info',InfoController::class);
             Route::resource('theme',ThemeController::class);
             Route::resource('blog',BlogController::class);
+            Route::resource('cupon',CuponController::class);
         });
     });

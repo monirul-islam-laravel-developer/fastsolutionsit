@@ -1,7 +1,7 @@
 @extends('admin.master.master')
 
 @section('title')
-    SubCategory page
+    Cupon page
 @endsection
 
 @section('body')
@@ -22,7 +22,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header border-bottom">
-                                <h3 class="card-title">All SubCategory</h3>
+                                <h3 class="card-title">All Cupon</h3>
 
                             </div>
                             <div class="card-body">
@@ -30,44 +30,48 @@
                                     <table id="example2" class="table table-bordered text-nowrap border-bottom">
                                         <thead>
                                         <div class="d-flex justify-content-end mb-4">
-                                            <a href="{{route('subcategory.create')}}" class="btn btn-primary">Add SubCategory</a>
+                                            <a href="{{route('cupon.create')}}" class="btn btn-primary">Add Cupon</a>
                                         </div>
                                         <tr>
                                             <th class="border-bottom-0">Sl</th>
-                                            <th class="border-bottom-0">Category Name</th>
                                             <th class="border-bottom-0">Name</th>
-                                            <th class="border-bottom-0">Image</th>
+                                            <th class="border-bottom-0">Code</th>
+                                            <th class="border-bottom-0">Start date</th>
+                                            <th class="border-bottom-0">End date</th>
+                                            <th class="border-bottom-0">Expire date</th>
                                             <th class="border-bottom-0">Status</th>
                                             <th class="border-bottom-0">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($subcategories as $subcategory)
+                                        @foreach($cupons as $cupon)
                                             <tr>
-                                                <td>{{$loop->iteration}}</td>
-                                                <td>{{$subcategory->category->name}}</td>
-                                                <td>{{$subcategory->name}}</td>
-                                                <td><img src="{{asset($subcategory->image)}}" height="50" width="80"></td>
+                                                <td>1</td>
+                                                <td>{{$cupon->name}}</td>
+                                                <td>{{$cupon->code}}</td>
+                                                <td>{{$cupon->start_date}}</td>
+                                                <td>{{$cupon->end_date}}</td>
+                                                <td>{{$cupon->expire_date}}</td>
                                                 <td>
-                                                    @if($subcategory->status==1)
-
-                                                        <a href="{{route('subcategory.show',$subcategory->id)}}" class="btn btn-primary">Active</a>
+                                                    @if($cupon->status==1)
+                                                    <a href="{{route('cupon.show',$cupon->id)}}" class="btn btn-primary">Active</a>
                                                     @else
-                                                        <a href="{{route('subcategory.show',$subcategory->id)}}" class="btn btn-warning">Inactive</a>
+                                                        <a href="{{route('cupon.show',$cupon->id)}}" class="btn btn-warning">Inactive</a>
                                                     @endif
 
                                                 </td>
+                                                <td>2-2-30</td>
 
                                                 <td>
-                                                    <a href="{{route('subcategory.edit',$subcategory->id)}}" class="btn btn-success btn-lg" title="Edit">
+                                                    <a href="{{route('cupon.edit',$cupon->id)}}" class="btn btn-success btn-lg" title="Edit">
                                                         <i class="ri-edit-box-fill"></i>
                                                     </a>
 
-                                                    <button type="button" onclick="confirmDelete({{$subcategory->id}});" class="btn btn-danger btn-lg" title="Delete">
+                                                    <button type="button" onclick="confirmDelete({{$cupon->id}});" class="btn btn-danger btn-lg" title="Delete">
                                                         <i class="ri-chat-delete-fill"></i>
                                                     </button>
 
-                                                    <form action="{{route('subcategory.destroy',$subcategory->id)}}" method="POST" id="categoryDeleteForm{{$subcategory->id}}">
+                                                    <form action="{{route('cupon.destroy',$cupon->id)}}" method="POST" id="categoryDeleteForm{{$cupon->id}}">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -97,6 +101,9 @@
             </div>
         </div>
     </div>
+
+
 @endsection
+
 
 

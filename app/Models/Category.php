@@ -25,6 +25,7 @@ class Category extends Model
     {
         self::$category= new Category();
         self::$category->name=$request->name;
+        self::$category->description=$request->description;
         self::$category->slug=Str::slug($request->name);
         if ($request->file('image'))
         {
@@ -48,6 +49,7 @@ class Category extends Model
             self::$imageUrl=self::$category->image;
         }
         self::$category->name=$request->name;
+        self::$category->description=$request->description;
         self::$category->slug=Str::slug($request->name);
         self::$category->image=self::$imageUrl;
         self::$category->save();

@@ -1,7 +1,7 @@
 @extends('admin.master.master')
 
 @section('title')
-    SubCategory Edit Page
+    Cupon Edit Page
 @endsection
 
 @section('body')
@@ -23,39 +23,35 @@
                     <div class="col-sm-12">
                         <div class="card box-shadow-0">
                             <div class="card-header border-bottom">
-                                <h4 class="card-title">SubCategory Edit Form</h4>
+                                <h4 class="card-title">Cupon Edit Form</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('subcategory.update', $subcategory->id) }}" method="POST" enctype="multipart/form-data" id="categoryForm">
-                                    @csrf
+                                <form action="{{route('cupon.update',$cupon->id)}}" method="POST" enctype="multipart/form-data" id="categoryForm">
                                     @method('PUT')
+                                    @csrf
                                     <div class="form-group">
-                                        <label for="categorySelect">Category Name</label>
-                                        <select class="form-control" name="category_id" id="categorySelect">
-                                            <option disabled selected>---- Select Category----</option>
-                                            @foreach($categories as $category)
-                                                <option value="{{ $category->id }}" {{ $category->id == $subcategory->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('category_id')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
+                                        <label for="exampleInputEmail2">Name</label>
+                                        <input type="text" name="name" value="{{$cupon->name}}" required class="form-control" id="exampleInputEmail2" placeholder="Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nameInput">Name</label>
-                                        <input type="text" name="name" value="{{ $subcategory->name }}" required class="form-control" id="nameInput" placeholder="Name">
+                                        <label for="exampleInputEmail2">Code</label>
+                                        <input type="text" name="code" value="{{$cupon->code}}" required class="form-control" id="exampleInputEmail2" placeholder="Code">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nameInput">Description</label>
-                                        <input type="text" name="description" value="{{ $subcategory->description }}" required class="form-control" id="nameInput" placeholder="Description">
+                                        <label for="exampleInputEmail2">Discount Price</label>
+                                        <input type="text" name="discount_price" value="{{$cupon->discount_price}}"  required class="form-control" id="exampleInputEmail2" placeholder="Discount Price">
                                     </div>
-                                    @error('name')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
                                     <div class="form-group">
-                                        <label for="formFile" class="form-label">Image</label>
-                                        <input class="form-control file-input" type="file" name="image" id="formFile" onchange="previewImage(this)">
-                                        <img id="imagePreview" src="{{ asset($subcategory->image) }}" alt="Image Preview" class="img-fluid {{ $subcategory->image ? '' : 'd-none' }}" height="80" width="120">
+                                        <label for="exampleInputEmail2">Start Date</label>
+                                        <input type="date" name="start_date" value="{{$cupon->start_date}}"  required class="form-control" id="exampleInputEmail2" placeholder="Description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail2">End Date</label>
+                                        <input type="date" name="end_date" value="{{$cupon->end_date}}" required class="form-control" id="exampleInputEmail2" placeholder="Description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail2">Expire Date</label>
+                                        <input type="date" name="expire_date" value="{{$cupon->expire_date}}" required class="form-control" id="exampleInputEmail2" placeholder="Description">
                                     </div>
                                     <div class="col-12 d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary btn-w-md mt-3">Submit</button>
@@ -88,3 +84,5 @@
         }
     </script>
 @endsection
+
+

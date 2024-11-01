@@ -14,11 +14,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="breadcrumb-one-content">
-                        <h3 class="breadcrumb-one-content__title text-center mb-3 text-capitalize">58,000+ products available for purchase</h3>
-                        <p class="breadcrumb-one-content__desc text-center text-black-three">Explore the best premium themes and plugins available for sale. Our unique collection is hand-curated by experts. Find and buy the perfect premium theme.</p>
+                        <h3 class="breadcrumb-one-content__title text-center mb-3 text-capitalize">Laravel And Vue js Project available for purchase</h3>
+                        <p class="breadcrumb-one-content__desc text-center text-black-three">Explore the best premium Project available for sale. Our unique collection is hand-curated by experts. Find and buy the perfect premium Project.</p>
 
-                        <form action="#" class="search-box">
-                            <input type="text" class="common-input common-input--lg pill shadow-sm" placeholder="Search theme, plugins &amp; more...">
+                        <form action="{{ route('search-website') }}" class="search-box">
+                            <input type="text" name="search" value="{{ request('search') }}" class="common-input common-input--lg pill shadow-sm" placeholder="Search theme, plugins &amp; more...">
                             <button type="submit" class="btn btn-main btn-icon icon border-0">
                                 <img src="{{ asset('/') }}front/assets/images/icons/search.svg" alt="">
                             </button>

@@ -34,6 +34,10 @@
                                         <input type="text" name="name" required value="{{ $category->name }}" class="form-control" id="nameInput" placeholder="Name">
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputEmail2">Description</label>
+                                        <input type="text" name="description" value="{{ $category->description }}" required class="form-control" id="exampleInputEmail2" placeholder="Description">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="formFile" class="form-label">Image</label>
                                         <input class="form-control file-input" type="file" name="image" id="formFile" onchange="previewImage(this)">
                                         <img id="imagePreview" src="{{ asset($category->image) }}" alt="Category Image Preview" class="img-fluid {{ $category->image ? '' : 'd-none' }}" height="80" width="120">

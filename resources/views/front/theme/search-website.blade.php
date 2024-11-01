@@ -1,8 +1,9 @@
 @extends('front.master.master')
 @section('title')
-    Theme Page
+    Search Page
 @endsection
 @section('body')
+
     <section class="breadcrumb breadcrumb-one padding-y-60 section-bg position-relative z-index-1 overflow-hidden">
 
         <img src="{{ asset('/') }}front/assets/images/gradients/breadcrumb-gradient-bg.png" alt="" class="bg--gradient">
@@ -29,7 +30,8 @@
             </div>
         </div>
     </section>
-
+    <!-- ======================== Breadcrumb one Section End ===================== -->
+    <!-- ======================== All Product Section Start ====================== -->
     <section class="all-product padding-y-120">
         <div class="container container-two">
             <div class="row">
@@ -78,28 +80,24 @@
                     </div>
                     <!-- ===================== Filter Sidebar End ============================= -->
                 </div>
+
                 <div class="col-xl-9 col-lg-8">
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-product" role="tabpanel" aria-labelledby="pills-product-tab" tabindex="0">
                             <div class="row gy-4 list-grid-wrapper">
 
-                                @if($themess->isEmpty())
-                                    <div class="no-projects-message d-flex justify-content-center align-items-center my-5 p-4">
-                                        <p class="text-muted m-0">No available Website in this category right now.</p>
-                                    </div>
-                                @else
-                                @foreach($themess as $themes)
+                                @foreach($themes as $theme)
                                     <div class="col-xl-4 col-sm-6">
                                         <div class="product-card section-bg">
                                             <div class="product-card__thumb d-flex">
-                                                <a href="{{route('detail',['categorySlug'=>$themes->sub_category->slug,'postSlug'=>$themes->slug])}}" class="link w-100">
-                                                    <img src="{{ asset($themes->image) }}" alt="" class="cover-img">
+                                                <a href="{{route('detail',['categorySlug'=>$theme->sub_category->slug,'postSlug'=>$theme->slug])}}" class="link w-100">
+                                                    <img src="{{ asset($theme->image) }}" alt="" class="cover-img">
                                                 </a>
                                                 <button type="button" class="product-card__wishlist"><i class="fas fa-heart"></i></button>
                                             </div>
                                             <div class="product-card__content">
                                                 <h6 class="product-card__title">
-                                                    <a href="{{route('detail',['categorySlug'=>$themes->sub_category->slug,'postSlug'=>$themes->slug])}}" class="link">{{$themes->name}}</a>
+                                                    <a href="{{route('detail',['categorySlug'=>$theme->sub_category->slug,'postSlug'=>$theme->slug])}}" class="link">{{$theme->name}}</a>
                                                 </h6>
                                                 <div class="product-card__info flx-between gap-2">
             <span class="product-card__author">
@@ -107,8 +105,8 @@
                 {{--                <a href="profile.html" class="link hover-text-decoration-underline"> themepix</a>--}}
             </span>
                                                     <div class="flx-align gap-2">
-                                                        <h6 class="product-card__price mb-0">Tk.{{$themes->selling_price}}</h6>
-                                                        <span class="product-card__prevPrice text-decoration-line-through">Tk.{{$themes->regular_price}}</span>
+                                                        <h6 class="product-card__price mb-0">Tk.{{$theme->selling_price}}</h6>
+                                                        <span class="product-card__prevPrice text-decoration-line-through">Tk.{{$theme->regular_price}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="product-card__bottom flx-between gap-2">
@@ -125,20 +123,19 @@
                                                             {{--                                                        <span class="star-rating__text text-heading fw-500 font-14"> (16)</span>--}}
                                                         </div>
                                                     </div>
-                                                    <a target="_blank" href="{{$themes->link}}" class="btn btn-outline-light btn-sm pill">Live Demo</a>
-                                                    <a href="{{route('detail',['categorySlug'=>$themes->sub_category->slug,'postSlug'=>$themes->slug])}}" class="btn btn-success btn-sm pill">Detail</a>
+                                                    <a target="_blank" href="{{$theme->link}}" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+                                                    <a href="{{route('detail',['categorySlug'=>$theme->sub_category->slug,'postSlug'=>$theme->slug])}}" class="btn btn-success btn-sm pill">Detail</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-                                    @endif
 
                             </div>
                             <!-- Pagination Start -->
                             <nav aria-label="Page navigation">
                                 <ul class="pagination common-pagination">
-                                    <li class="page-item">  {{ $themess->links() }}</a></li>
+                                    <li class="page-item">  {{ $themes->links() }}</a></li>
                                 </ul>
                             </nav>
                             <!-- Pagination End -->
@@ -152,6 +149,4 @@
             </div>
         </div>
     </section>
-
-
 @endsection

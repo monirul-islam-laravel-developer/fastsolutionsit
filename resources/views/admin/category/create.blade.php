@@ -33,6 +33,10 @@
                                         <input type="text" name="name" required class="form-control" id="exampleInputEmail2" placeholder="Name">
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputEmail2">Description</label>
+                                        <input type="text" name="description" required class="form-control" id="exampleInputEmail2" placeholder="Description">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="formFile" class="form-label">Image</label>
                                         <input class="form-control file-input" type="file" name="image" id="formFile" onchange="previewImage(this)">
                                         <img id="imagePreview" src="#" alt="Image Preview" class="img-fluid d-none" height="80" width="120">

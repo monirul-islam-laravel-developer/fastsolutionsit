@@ -95,21 +95,40 @@
                         </li>
                         <li class="billing-list__item flx-between">
                             <span class="text text-heading fw-500">Cupon Discount</span>
-                            <span class="amount text-body">Tk.00</span>
+                            <span class="amount text-body">Tk.{{session('cupondiscount_price')}}</span>
                         </li>
                         <li class="billing-list__item flx-between">
                             <span class="text text-heading font-20 fw-500 font-heading">Total</span>
-                            @php
-                                $grandtotalprice = $theme->regular_price - $discauntprice;
-                            @endphp
-                            <span class="amount text-heading font-20 fw-500 font-heading">Tk.{{ $grandtotalprice }}</span>
+                            @if(session('cupondiscount_price'))
+                                @php
+                                    $grandtotalprice = $theme->regular_price - $discauntprice - session('cupondiscount_price'); // Calculate grand total
+                                @endphp
+                            @else
+                                @php
+                                    $grandtotalprice = $theme->regular_price - $discauntprice; // Calculate grand total without coupon
+                                @endphp
+                            @endif
+                            <span class="amount text-heading font-20 fw-500 font-heading">Tk. {{ $grandtotalprice }}</span>
                         </li>
+
                     </ul>
                     <!-- Coupon form inside the order summary column -->
-                    <form action="#" class="apply-coupon flx-align gap-3 mt-4">
-                        <input type="text" class="common-input common-input--md w-auto pill" placeholder="Coupon code">
+                    <form action="{{ route('cupon.verify') }}" method="POST" class="apply-coupon flx-align gap-3 mt-4">
+                        @csrf
+                        <input type="text" name="code" class="common-input common-input--md w-auto pill" placeholder="Coupon code" required>
                         <button type="submit" class="btn btn-main btn-md py-3 px-sm-5 px-4 flx-align gap-2 pill fw-300">Apply</button>
                     </form>
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+
                 </div>
             </div>
 
@@ -147,12 +166,7 @@
                         </div>
 
                         <!-- Payment Method Selection -->
-                        <h3>Select Payment Method</h3>
-                        <div class="payment-options mb-4">
-                            <img src="{{ asset('/') }}front/assets/images/icons/bkash.jpg" alt="Bkash" data-toggle="modal" data-target="#bkash-modal">
-                            <img src="{{ asset('/') }}front/assets/images/icons/nagadapp.jpg" alt="Nagad" data-toggle="modal" data-target="#nagad-modal">
-                            <img src="{{ asset('/') }}front/assets/images/icons/dutch-bangla-rocket.png" alt="Rocket" data-toggle="modal" data-target="#rocket-modal">
-                        </div>
+
 
                         <div class="mb-4">
                             <label for="payment_method" class="form-label font-18 mb-2 fw-500 font-heading">Select Your Payment Method</label>
@@ -163,6 +177,14 @@
                                 <option value="rocket">Rocket</option>
                             </select>
                         </div>
+                        <div class="payment-options mb-4">
+                            <img src="{{ asset('/') }}front/assets/images/icons/bkash.jpg" alt="Bkash" id="bkash-image" style="display: none;">
+                            <img src="{{ asset('/') }}front/assets/images/icons/nagadapp.jpg" alt="Nagad" id="nagad-image" style="display: none;">
+                            <img src="{{ asset('/') }}front/assets/images/icons/dutch-bangla-rocket.png" alt="Rocket" id="rocket-image" style="display: none;">
+                        </div>
+                        <div class="payment-number mt-2" id="payment-number"></div>
+                        <!-- Placeholder to display the payment number -->
+
 
                         <div class="mb-4">
                             <label for="transaction_id" class="form-label font-18 mb-2 fw-500 font-heading">Transaction ID <span class="text-danger">*</span></label>
@@ -204,7 +226,39 @@
         </div>
     </div>
 
+    <script>
+        // Define the payment numbers for each method
+        const paymentNumbers = {
+            bkash: "01755766176",
+            nagad: "01755766176",
+            rocket: "017557661765"
+        };
 
+        // Select elements for the images
+        const bkashImage = document.getElementById("bkash-image");
+        const nagadImage = document.getElementById("nagad-image");
+        const rocketImage = document.getElementById("rocket-image");
+        const paymentNumber = document.getElementById("payment-number");
+
+        // Event listener for the dropdown
+        document.getElementById("payment_method").addEventListener("change", function () {
+            // Hide all images initially
+            bkashImage.style.display = "none";
+            nagadImage.style.display = "none";
+            rocketImage.style.display = "none";
+
+            // Get the selected payment method
+            const selectedMethod = this.value;
+
+            // Display the corresponding image and number
+            if (selectedMethod) {
+                document.getElementById(`${selectedMethod}-image`).style.display = "block";
+                paymentNumber.textContent = `Payment Number Send Money: ${paymentNumbers[selectedMethod]}`;
+            } else {
+                paymentNumber.textContent = "";
+            }
+        });
+    </script>
 
     <!-- ====================== Cart Personal Info End ============================ -->
 @endsection
