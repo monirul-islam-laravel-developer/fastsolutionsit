@@ -1,5 +1,4 @@
 @extends('front.master.master')
-
 @section('seo')
     <meta itemprop="name" content="{{$blog->title}}">
     <meta itemprop="description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->seo_tag), 300)}}">
