@@ -1,21 +1,48 @@
 @extends('front.master.master')
+@section('seo')
+    <meta itemprop="name" content="{{$blog->title}}">
+    <meta itemprop="description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->seo_tag), 300)}}">
+    <meta itemprop="image" content="{{ asset($blog->image) }}">
+
+    <meta name="keywords" content="{{$blog->seo_tag}}" />
+    <meta name="title" content="{{$blog->title}}"/>
+    <meta name="description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->body), 300)}}">
+
+    <meta property="article:type" content="website">
+    <meta property="article:title" content="{{$blog->title}}">
+    <meta property="article:url" content="{{request()->url()}}">
+    <meta property="article:description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->body), 300)}}">
+    <meta property="article:image" content="{{asset($blog->image)}}">
+    <meta property="article:published_time" content="{{$blog->created_at->format('Y-m-d h:i:s A, F Y, l')}}" />
+    <meta property="article:modified_time" content="{{$blog->updated_at->format('Y-m-d h:i:s A, F Y, l')}}" />
+
+
+    <meta property="og:url" content="{{ request()->url() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Fost Solutions It Software Company" />
+    <meta property="og:title" content="{{$blog->title}}" />
+    <meta property="og:description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->body), 300)}}" />
+    <meta property="og:image" content="{{ asset($blog->image) }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:secure_url" content="{{ asset($blog->image) }}" />
+    <meta property="og:image:alt" content="{{ $blog->title }}" />
+    <link rel="image_src" href="{{ asset($blog->image) }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="armanalibd.com">
+    <meta property="twitter:url" content="{{ request()->url() }}">
+    <meta name="twitter:title" content="{{$blog->title}} | {{env('APP_NAME')}}">
+    <meta name="twitter:hashtags" content="Laravel Developer, PHP Developer, HTML, CSS, Bootstrap, Vue.js Developer,">
+    <meta name="twitter:description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->body), 300)}}">
+    <meta name="twitter:image" content="{{ asset($blog->image) }}">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:site" content="">
+
+    <meta name="url" content="{{request()->url()}}" />
+    <link rel="canonical" href="{{request()->url()}}" />
+@endsection
 @section('title')
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="@yield('meta_title', $blog->title ?? 'Default Blog Title')"> <!-- Ensure $blog->title exists -->
-    <meta property="og:description" content="@yield('meta_description', 'Software Company In bd')">
-    <meta property="og:image" content="@yield('meta_image', asset($blog->image ?? 'default-image.jpg'))"> <!-- Fallback for image -->
-    <meta property="og:url" content="@yield('url', request()->url())">
-    <meta property="og:type" content="article"> <!-- Changed to 'article' for blog posts -->
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="@yield('meta_twiter', 'summary_large_image')"> <!-- Changed to 'summary_large_image' for better display -->
-    <meta name="twitter:title" content="@yield('twitter-title', $blog->title ?? 'Default Blog Title')"> <!-- Ensure $blog->title exists -->
-    <meta name="twitter:description" content="@yield('twitter-description', 'Software Company In bd')">
-    <meta name="twitter:image" content="@yield('twitter_image', asset($blog->image ?? 'default-image.jpg'))"> <!-- Fallback for image -->
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="@yield('canonical_url', request()->url())">
-
     Blog Detail Page
 @endsection
 @section('body')
