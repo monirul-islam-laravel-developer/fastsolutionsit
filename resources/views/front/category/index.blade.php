@@ -1,4 +1,5 @@
 @extends('front.master.master')
+
 @section('title')
     Theme Page
 @endsection

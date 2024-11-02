@@ -20,7 +20,7 @@
 
     <meta property="og:url" content="{{ request()->url() }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Fost Solutions It Software Company" />
+    <meta property="og:site_name" content="Fast Solutions It Software Company" />
     <meta property="og:title" content="{{$blog->title}}" />
     <meta property="og:description" content="{{\Illuminate\Support\Str::limit(strip_tags($blog->body), 300)}}" />
     <meta property="og:image" content="{{ asset($blog->image) }}" />
@@ -31,7 +31,7 @@
     <link rel="image_src" href="{{ asset($blog->image) }}">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="armanalibd.com">
+    <meta property="twitter:domain" content="fastsolutionsit.com">
     <meta property="twitter:url" content="{{ request()->url() }}">
     <meta name="twitter:title" content="{{$blog->title}} | {{env('APP_NAME')}}">
     <meta name="twitter:hashtags" content="Laravel Developer, PHP Developer, HTML, CSS, Bootstrap, Vue.js Developer,">
