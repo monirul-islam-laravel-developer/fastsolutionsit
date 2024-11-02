@@ -15,7 +15,6 @@
 <meta property="og:title" content="@yield('meta_title', 'Software Company')">
 <meta property="og:description" content="@yield('meta_description', 'Software Company In bd')">
 <meta property="og:image" content="@yield('meta_image', asset($logo->mobile_logo))">
-<meta property="og:image" content="@yield('meta_image', asset($logo->mobile_logo))">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="@yield('url', request()->url())">

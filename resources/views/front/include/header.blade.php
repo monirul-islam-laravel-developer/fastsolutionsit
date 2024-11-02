@@ -4,10 +4,11 @@
             <!-- Logo Start -->
             <div class="logo">
                 <a href="{{route('home')}}" class="link white-version">
-                    <img src="{{asset($logo->mobile_logo)}}" alt="Logo">
+                    <img src="{{ asset($logo->mobile_logo) }}" alt="Logo" style="width: 300px; height: 80px;">
+
                 </a>
                 <a href="{{route('home')}}" class="link dark-version">
-                    <img src="{{asset($logo->mobile_logo)}}" alt="Logo">
+                    <img src="{{ asset($logo->mobile_logo) }}" alt="Logo" style="width: 300px; height: 80px;">
                 </a>
             </div>
             <!-- Logo End  -->
