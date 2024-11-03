@@ -1,9 +1,6 @@
 @extends('front.master.master')
-@section('seo')
-    <meta itemprop="name" content="{{$cat_id->name}}">
-    <meta itemprop="description" content="{{\Illuminate\Support\Str::limit(strip_tags($cat_id->description), 300)}}">
-    <meta itemprop="image" content="{{ asset($cat_id->image) }}">
 
+<<<<<<< HEAD
     <meta name="keywords" content="Software Development Bangladesh, PHP Development Bangladesh, Laravel Development Bangladesh, Vue.js Development Bangladesh, Web Development Services Bangladesh, Custom Software Solutions Bangladesh, IT Solutions Bangladesh, E-commerce Development Bangladesh, Mobile App Development Bangladesh, Software Company in Bangladesh, Digital Solutions Bangladesh, Technology Services Bangladesh, Software Engineering Bangladesh, Web Application Development Bangladesh, IT Consultancy Bangladesh, Business Software Solutions Bangladesh, Cloud Computing Bangladesh, Digital Marketing Bangladesh, IT Support Services Bangladesh, Freelance Software Development Bangladesh, Offshore Software Development Bangladesh, Bangladesh IT Outsourcing, Tech Startups in Bangladesh, Software Testing Services Bangladesh, Web Design Services Bangladesh, Data Analytics Bangladesh, Responsive Web Design Bangladesh, Blockchain Development Bangladesh, Cybersecurity Services Bangladesh,Laravel 11 Web Application Development, Build Web Applications with Laravel 11, Laravel 11 Web Application Framework, Laravel 11 for Custom Web Applications, Laravel 11 Responsive Web Applications, Laravel 11 E-commerce Web Applications, Laravel 11 API-Driven Web Applications, Laravel 11 Full-Stack Web Development, Laravel 11 Frontend and Backend Integration, Laravel 11 Real-Time Web Applications,eCommerce Development, Online Store Solutions, eCommerce Website Design, Custom eCommerce Solutions, eCommerce Payment Gateway Integration, School Management System, Student Information System, Online School Management Software, Attendance Management for Schools, Gradebook Management System, Newspaper Development, Online Newspaper Solutions, News Publishing Platform, Digital Newspaper Solutions, Subscription Management for Newspapers, News Aggregator Development, Responsive Newspaper Website">    <meta name="description" content="Laravel & Vue js Web Solution Service">
 
     <meta name="title" content="{{$cat_id->name}}"/>
@@ -43,6 +40,8 @@
     <meta name="url" content="{{request()->url()}}" />
     <link rel="canonical" href="{{request()->url()}}" />
 @endsection
+=======
+>>>>>>> parent of 0f5a5d2 (cat_share)
 @section('title')
     Theme Page
 @endsection
@@ -81,7 +80,7 @@
                     <div class="filter-tab gap-3 flx-between">
                         <button type="button" class="filter-tab__button btn btn-outline-light pill d-flex align-items-center">
                             <span class="icon icon-left"><img src="{{ asset('/') }}front/assets/images/icons/filter.svg" alt=""></span>
-                            <span class="font-18 fw-500">Filters </span>
+                            <span class="font-18 fw-500">Filters</span>
                         </button>
 
                         <div class="list-grid d-flex align-items-center gap-2">
