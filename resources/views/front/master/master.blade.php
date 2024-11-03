@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<meta name="language" content="en" />
+<meta http-equiv="Content-Language" content="en" />
+<meta name="robots" content="all">
+<meta name="googlebot" content="all" />
+<meta name="googlebot-news" content="all" />
+<meta name="Developer" content="Fast Solutions It" />
+<meta name="Developed By" content="Fast Solutions It" />
+<meta name="author" content="Fast Solutions It" />
 <head>
-    
     @yield('seo')
-
 
     <!-- Title -->
     <title>@yield('title')</title>
