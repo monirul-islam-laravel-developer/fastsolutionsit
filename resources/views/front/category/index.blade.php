@@ -1,5 +1,6 @@
 @extends('front.master.master')
 @section('seo')
+    
     <meta itemprop="name" content="{{$themess->sub_category->name}}">
     <meta itemprop="description" content="{{\Illuminate\Support\Str::limit(strip_tags($themess->sub_category->description), 300)}}">
     <meta itemprop="image" content="{{ asset($themess->sub_category->image) }}">
