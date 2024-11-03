@@ -25,7 +25,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontBlogController;
 use App\Http\Controllers\CuponController;
 use App\Http\Controllers\FrontCuponController;
-use RealRashid\SweetAlert\Facades\Alert;
 
 function getRoleName($routeName)
 {
@@ -47,7 +46,10 @@ function getRoleName($routeName)
     Route::get('/search-website', [FrontThemeController::class, 'searchWebsite'])->name('search-website');
     Route::get('cart-page', [CartController::class, 'index'])->name('add-to-cart');
     Route::get('order-page/{id}/{slug}', [CustomerOrderController::class, 'index'])->name('order-page');
+
     Route::post('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order')->middleware('customer');
+    Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
+    Route::get('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order');
     Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
 
     Route::get('customer-register', [AuthCustommerController::class, 'index'])->name('customer-register')->middleware('customerlogin');
@@ -64,12 +66,6 @@ function getRoleName($routeName)
     Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function ()
     {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
-        Route::get('clear',function() {
-            Artisan::call('optimize:clear');
-            Alert::success('Cache Clear', 'Cache clear successfully');
-            return redirect()->back();
-//    dd('cleared');
-        })->name('clear');
         Route::get('/get-sub-category-by-id',[CatSubController::class,'getSubCategory'])->name('product.sub-category');
 
         Route::middleware(['roles'])->group(function () {

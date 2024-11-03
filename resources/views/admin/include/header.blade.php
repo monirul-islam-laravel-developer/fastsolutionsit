@@ -9,20 +9,6 @@
                      alt="logo">
             </a>
             <!-- LOGO -->
-            <a target="_blank" href="{{route('home')}}">
-                <div class="home-icon">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home Icon" width="30" height="30">
-                </div>
-            </a>
-            <a href="{{route('clear')}}" class="clear-cache-link">
-                <div class="clear-cache-icon">
-                    <img src="https://img.icons8.com/ios-filled/50/000000/refresh.png" alt="Clear Cache Icon" width="30" height="30">
-                </div>
-            </a>
-
-
-
-
             <div class="main-header-center ms-3 d-none d-xl-block">
                 <input class="form-control" placeholder="Search for results..." type="search">
                 <button class="btn">
