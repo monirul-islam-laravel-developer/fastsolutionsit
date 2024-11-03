@@ -8,6 +8,7 @@
 <meta name="Developer" content="Fast Solutions It" />
 <meta name="Developed By" content="Fast Solutions It" />
 <meta name="author" content="Fast Solutions It" />
+
 <head>
     @yield('seo')
 
