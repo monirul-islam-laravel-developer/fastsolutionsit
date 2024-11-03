@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CustomerMiddleware
 {
@@ -23,6 +24,7 @@ class CustomerMiddleware
         }
         else
         {
+            Alert::warning('Please Login Or Signup first');
             return redirect()->route('customer-login');
         }
 

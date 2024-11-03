@@ -135,7 +135,7 @@
             <div class="col-md-8 pe-sm-5">
                 <div class="cart-personal__content">
                     <h5 class="cart-personal__title mb-32">Personal Information</h5>
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('complete-order')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Personal Information Fields -->
                         <div class="mb-4">

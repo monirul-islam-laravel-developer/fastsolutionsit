@@ -15,6 +15,6 @@ class CustomerOrderController extends Controller
     }
     public function completeOrder(Request $request)
     {
-        return $request->all();
+        return redirect()->route('home');
     }
 }
