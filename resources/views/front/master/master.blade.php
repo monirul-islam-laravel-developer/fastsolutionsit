@@ -10,8 +10,6 @@
 <meta name="author" content="Fast Solutions It" />
 
 <head>
-<<<<<<< HEAD
-=======
     <meta name="language" content="en" />
     <meta http-equiv="Content-Language" content="en" />
     <meta name="robots" content="all">
@@ -20,7 +18,6 @@
     <meta name="Developer" content="Fast Solutions It" />
     <meta name="Developed By" content="Fast Solutions It" />
     <meta name="author" content="Fast Solutions It" />
->>>>>>> parent of 6e9126b (fff)
     @yield('seo')
 
     <!-- Title -->
