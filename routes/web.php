@@ -47,10 +47,10 @@ function getRoleName($routeName)
     Route::get('cart-page', [CartController::class, 'index'])->name('add-to-cart');
     Route::get('order-page/{id}/{slug}', [CustomerOrderController::class, 'index'])->name('order-page');
 
-    Route::post('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order')->middleware('customer');
+    Route::post('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order');
     Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
     Route::get('complete-order', [CustomerOrderController::class, 'completeOrder'])->name('complete-order');
-Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
+    Route::post('/cupon/verify', [FrontCuponController::class, 'verify'])->name('cupon.verify');
 
     Route::get('customer-register', [AuthCustommerController::class, 'index'])->name('customer-register')->middleware('customerlogin');
     Route::get('customer-login', [AuthCustommerController::class, 'login'])->name('customer-login')->middleware('customerlogin');
