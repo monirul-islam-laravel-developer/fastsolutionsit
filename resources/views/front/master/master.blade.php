@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="language" content="en" />
-<meta http-equiv="Content-Language" content="en" />
-<meta name="robots" content="all">
-<meta name="googlebot" content="all" />
-<meta name="googlebot-news" content="all" />
-<meta name="Developer" content="Fast Solutions It" />
-<meta name="Developed By" content="Fast Solutions It" />
-<meta name="author" content="Fast Solutions It" />
+
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="language" content="en" />
     <meta http-equiv="Content-Language" content="en" />
     <meta name="robots" content="all">
