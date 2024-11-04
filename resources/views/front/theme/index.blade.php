@@ -1,4 +1,45 @@
 @extends('front.master.master')
+@section('seo')
+
+    <meta itemprop="name" content="{{$theme->name}}">
+    <meta itemprop="description" content="Latest Larave & Vue Js All Website Solutions">
+    <meta itemprop="image" content="{{asset($theme->image)}}">
+    <meta name="keywords" content="Software Development Bangladesh, PHP Development Bangladesh, Laravel Development Bangladesh, Vue.js Development Bangladesh, Web Development Services Bangladesh, Custom Software Solutions Bangladesh, IT Solutions Bangladesh, E-commerce Development Bangladesh, Mobile App Development Bangladesh, Software Company in Bangladesh, Digital Solutions Bangladesh, Technology Services Bangladesh, Software Engineering Bangladesh, Web Application Development Bangladesh, IT Consultancy Bangladesh, Business Software Solutions Bangladesh, Cloud Computing Bangladesh, Digital Marketing Bangladesh, IT Support Services Bangladesh, Freelance Software Development Bangladesh, Offshore Software Development Bangladesh, Bangladesh IT Outsourcing, Tech Startups in Bangladesh, Software Testing Services Bangladesh, Web Design Services Bangladesh, Data Analytics Bangladesh, Responsive Web Design Bangladesh, Blockchain Development Bangladesh, Cybersecurity Services Bangladesh,Laravel 11 Web Application Development, Build Web Applications with Laravel 11, Laravel 11 Web Application Framework, Laravel 11 for Custom Web Applications, Laravel 11 Responsive Web Applications, Laravel 11 E-commerce Web Applications, Laravel 11 API-Driven Web Applications, Laravel 11 Full-Stack Web Development, Laravel 11 Frontend and Backend Integration, Laravel 11 Real-Time Web Applications,eCommerce Development, Online Store Solutions, eCommerce Website Design, Custom eCommerce Solutions, eCommerce Payment Gateway Integration, School Management System, Student Information System, Online School Management Software, Attendance Management for Schools, Gradebook Management System, Newspaper Development, Online Newspaper Solutions, News Publishing Platform, Digital Newspaper Solutions, Subscription Management for Newspapers, News Aggregator Development, Responsive Newspaper Website">    <meta name="description" content="Laravel & Vue js Web Solution Service">
+
+    <meta name="title" content="Larave & Vue Js All Website"/>
+    <meta name="description" content="Latest Larave & Vue Js All Website ">
+
+    <meta property="article:type" content="website">
+    <meta property="article:title" content="{{$theme->name}}">
+    <meta property="article:url" content="{{request()->url()}}">
+    <meta property="article:description" content="Latest Larave & Vue Js All Website Solutions">
+    <meta property="article:image" content="{{asset($theme->image)}}">
+
+    <meta property="og:url" content="{{ request()->url() }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Fast Solutions It Software Company" />
+    <meta property="og:title" content="{{$theme->name}}" />
+    <meta property="og:description" content="Latest Larave & Vue Js All Website Solutions" />
+    <meta property="og:image" content="{{asset($theme->image)}}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:secure_url" content="{{asset($theme->image)}}" />
+    <meta property="og:image:alt" content="Larave & Vue Js All Website" />
+    <link rel="image_src" href="{{asset($theme->image)}}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="fastsolutionsit.com">
+    <meta property="twitter:url" content="{{ request()->url() }}">
+    <meta name="twitter:title" content="{{$theme->name}}| {{env('APP_NAME')}}">
+    <meta name="twitter:hashtags" content="Laravel Developer, PHP Developer, HTML, CSS, Bootstrap, Vue.js Developer,">
+    <meta name="twitter:description" content="Latest Larave & Vue Js All Website Solutions">
+    <meta name="twitter:image" content="{{asset($theme->image)}}">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:site" content="">
+
+    <meta name="url" content="{{request()->url()}}" />
+    <link rel="canonical" href="{{request()->url()}}" />
+@endsection
 @section('title')
     Detail Page
 @endsection

@@ -25,6 +25,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontBlogController;
 use App\Http\Controllers\CuponController;
 use App\Http\Controllers\FrontCuponController;
+use RealRashid\SweetAlert\Facades\Alert;
 
 function getRoleName($routeName)
 {
@@ -67,6 +68,13 @@ function getRoleName($routeName)
     {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
         Route::get('/get-sub-category-by-id',[CatSubController::class,'getSubCategory'])->name('product.sub-category');
+
+        Route::get('clear',function() {
+            Artisan::call('optimize:clear');
+            Alert::success('Cache Clear', 'Cache clear successfully');
+            return redirect()->back();
+//    dd('cleared');
+        })->name('clear');
 
         Route::middleware(['roles'])->group(function () {
             Route::group(['prefix' => 'role'], function () {
