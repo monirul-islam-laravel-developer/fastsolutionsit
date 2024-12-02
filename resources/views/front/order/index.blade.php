@@ -138,18 +138,28 @@
                     <form action="{{route('complete-order')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Personal Information Fields -->
-                        <div class="mb-4">
-                            <label for="name" class="form-label font-18 mb-2 fw-500 font-heading">Your Name <span class="text-danger">*</span></label>
-                            <input type="text" class="common-input" name="name" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="number" class="form-label font-18 mb-2 fw-500 font-heading">Your Number <span class="text-danger">*</span></label>
-                            <input type="number" class="common-input" name="number" id="number" placeholder="Your Number" required>
-                        </div>
-                        <div class="mb-4">
-                            <label for="alternative_number" class="form-label font-18 mb-2 fw-500 font-heading">Your Alternative Number</label>
-                            <input type="number" class="common-input" name="alt_number" id="alternative_number" placeholder="Your Alternative Number">
-                        </div>
+                        @if(Session::get('custommer_id'))
+                            <div class="modal-title text-center">
+                                Your Name And Number Already Taken
+                            </div>
+                        @else
+                            <div class="modal-title text-center">
+                                <h6 class="text-danger">Please log in first, then place your order.</h6>
+
+                            </div>
+                            <div class="mb-4">
+                                <label for="name" class="form-label font-18 mb-2 fw-500 font-heading">Your Name <span class="text-danger">*</span></label>
+                                <input type="text" class="common-input" name="name" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="number" class="form-label font-18 mb-2 fw-500 font-heading">Your Number <span class="text-danger">*</span></label>
+                                <input type="number" class="common-input" name="number" id="number" placeholder="Your Number" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="alternative_number" class="form-label font-18 mb-2 fw-500 font-heading">Your Alternative Number</label>
+                                <input type="number" class="common-input" name="alt_number" id="alternative_number" placeholder="Your Alternative Number">
+                            </div>
+                        @endif
                         <div class="mb-4">
                             <label for="email" class="form-label font-18 mb-2 fw-500 font-heading">Email Address <span class="text-danger">*</span></label>
                             <span class="text d-block mb-2">We will send the purchase receipt to this address.</span>

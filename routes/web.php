@@ -26,6 +26,7 @@ use App\Http\Controllers\FrontBlogController;
 use App\Http\Controllers\CuponController;
 use App\Http\Controllers\FrontCuponController;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\InquaryController;
 
 function getRoleName($routeName)
 {
@@ -39,6 +40,8 @@ function getRoleName($routeName)
 
 
     Route::get('/',[HomeController::class,'index'])->name('home');
+    Route::get('/contact-page',[HomeController::class,'contactPage'])->name('contact-page');
+    Route::post('/inquary-submit',[InquaryController::class,'inquary'])->name('inquary-submit');
     Route::get('/all-blogs',[FrontBlogController::class,'index'])->name('front-allblogs');
     Route::get('/blogs-detail/{id}',[FrontBlogController::class,'detail'])->name('blogs-detail');
     Route::get('/cat/{slug}', [FrontCategoryController::class, 'index'])->name('single-category');

@@ -92,7 +92,7 @@
                     <a href="{{route('front-allblogs')}}" class="nav-menu__link">All Blog</a>
                 </li>
                 <li class="nav-menu__item">
-                    <a href="contact.html" class="nav-menu__link">Contact</a>
+                    <a href="{{route('contact-page')}}" class="nav-menu__link">Contact</a>
                 </li>
             </ul>
             <div class="header-right__inner d-lg-none my-3 gap-1 d-flex flx-align">

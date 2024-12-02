@@ -32,5 +32,9 @@ class HomeController extends Controller
                 'blogs3'=>$this->blogs3
             ]);
     }
+    public function contactPage()
+    {
+        return view('front.contact.index');
+    }
 
 }

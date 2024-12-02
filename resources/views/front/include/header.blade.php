@@ -49,7 +49,7 @@
 {{--                        </ul>--}}
                     </li>
                     <li class="nav-menu__item">
-                        <a href="contact.html" class="nav-menu__link">Contact</a>
+                        <a href="{{route('contact-page')}}" class="nav-menu__link">Contact</a>
                     </li>
                 </ul>
             </div>
